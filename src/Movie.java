@@ -1,0 +1,179 @@
+import java.util.ArrayList;
+
+public class Movie
+{
+    /** Attributes */
+    public String name;
+    public String genre;
+    public double filmBudget;
+    public int numberOfActors;
+    public ArrayList<Actor> actors;
+    public Director director;
+    public TechnicalCrew technicalCrew;
+    public Scriptwriter scriptWriter;
+    public int numberOfMonths;
+    public int boxOffice;
+    //public time releaseDate;
+
+    /**
+     *
+     * @return String
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     *
+     * @param name
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    /**
+     *
+     * @return String
+     */
+    public String getGenre() {
+        return genre;
+    }
+
+    /**
+     *
+     * @param genre
+     */
+    public void setGenre(String genre) {
+        this.genre = genre;
+    }
+
+    /**
+     *
+     * @return double
+     */
+    public double getFilmBudget() {
+        return filmBudget;
+    }
+
+    /**
+     *
+     * @param filmBudget
+     */
+    public void setFilmBudget(double filmBudget) {
+        this.filmBudget = filmBudget;
+    }
+
+    /**
+     *
+     * @return int
+     */
+    public int getNumberOfActors() {
+        return numberOfActors;
+    }
+
+    /**
+     *
+     * @param numberOfActors
+     */
+    public void setNumberOfActors(int numberOfActors) {
+        this.numberOfActors = numberOfActors;
+    }
+
+    /**
+     *
+     * @return Director
+     */
+    public Director getDirector() {
+        return director;
+    }
+
+    /**
+     *
+     * @param director
+     */
+    public void setDirector(Director director) {
+        this.director = director;
+    }
+
+    /**
+     *
+     * @return TechnicalCrew
+     */
+    public TechnicalCrew getTechnicalCrew() {
+        return technicalCrew;
+    }
+
+    /**
+     *
+     * @param technicalCrew
+     */
+    public void setTechnicalCrew(TechnicalCrew technicalCrew) {
+        this.technicalCrew = technicalCrew;
+    }
+
+    /**
+     *
+     * @return ScreenWriter
+     */
+    public Scriptwriter getScriptWriter() {
+        return scriptWriter;
+    }
+
+    /**
+     *
+     * @param scriptWriter
+     */
+    public void setScriptWriter(Scriptwriter scriptWriter) {
+        this.scriptWriter = scriptWriter;
+    }
+
+    /**
+     *
+     * @return int
+     */
+    public int getNumberOfMonths() {
+        return numberOfMonths;
+    }
+
+    /**
+     *
+     * @param numberOfMonths
+     */
+    public void setNumberOfMonths(int numberOfMonths) {
+        this.numberOfMonths = numberOfMonths;
+    }
+
+    /**
+     *
+     * @return int
+     */
+    public int getBoxOffice() {
+        return boxOffice;
+    }
+
+    /**
+     *
+     * @param boxOffice
+     */
+    public void setBoxOffice(int boxOffice) {
+        this.boxOffice = boxOffice;
+    }
+
+
+    /**
+     *
+     * @return time
+     */
+    /*public time getReleaseDate() {
+        return releaseDate;
+    }*/
+
+    /**
+     *
+     * @param releaseDate
+     */
+    /*public void setReleaseDate(time releaseDate) {
+        this.releaseDate = releaseDate;
+    }
+    */
+}
