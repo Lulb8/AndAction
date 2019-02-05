@@ -15,6 +15,12 @@ public class Movie
     public int boxOffice;
     //public time releaseDate;
 
+    @Override
+    public String toString() {
+        return "Title : " + name + "\nGenre : " + genre + "\nBudget : " + filmBudget +
+                "\nActors : " + "\nDirector : " + director + "\nBox office : " + boxOffice;
+    }
+
     /**
      *
      * @return String
