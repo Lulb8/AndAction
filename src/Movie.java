@@ -10,7 +10,7 @@ public class Movie
     public ArrayList<Actor> actors;
     public Director director;
     public TechnicalCrew technicalCrew;
-    public Scriptwriter scriptWriter;
+    public Scriptwriter scriptwriter;
     public int numberOfMonths;
     public int boxOffice;
     //public time releaseDate;
@@ -119,18 +119,18 @@ public class Movie
 
     /**
      *
-     * @return ScreenWriter
+     * @return Scriptwriter
      */
-    public Scriptwriter getScriptWriter() {
-        return scriptWriter;
+    public Scriptwriter getScriptwriter() {
+        return scriptwriter;
     }
 
     /**
      *
-     * @param scriptWriter
+     * @param scriptwriter
      */
-    public void setScriptWriter(Scriptwriter scriptWriter) {
-        this.scriptWriter = scriptWriter;
+    public void setScriptwriter(Scriptwriter scriptwriter) {
+        this.scriptwriter = scriptwriter;
     }
 
     /**
