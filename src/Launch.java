@@ -12,10 +12,10 @@ public class Launch {
         /*System.out.println("Le nom du studio est : ");
         System.out.println(studio.getName());*/
 
-
         System.out.println("Budget du studio : ");
-        String budgetStudio = scanner.nextLine();
-        menuBar.setBudget(Double.parseDouble(budgetStudio));
+        //String budgetStudio = scanner.nextLine();
+        int budgetStudio = checkNumber();
+        menuBar.setBudget(budgetStudio);
         /*System.out.println("Le budget du studio est : ");
         System.out.println(menuBar.getBudget());*/
     }
