@@ -37,7 +37,7 @@ public class Launch {
                 } else {
                     throw new StringLengthException("'" + word + "' doit être compris entre 1 et 20 caractères.");
                 }
-            } catch (StringLengthException e) {
+            } catch (StringLengthException e) { //il faut gérer l'exception
                 System.out.println("Mauvaise longueur de la chaîne de caractères: " + word);
             }
         }
