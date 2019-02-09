@@ -25,7 +25,7 @@ public class Launch {
             this.launchAction(choice);
         }
     }
-
+/*
     private String checkString(){
         String word ="";
         boolean isWord = true;
@@ -43,7 +43,7 @@ public class Launch {
         }
         return word;
     }
-
+*/
     private int checkNumber() {
         int number = 0;
         //String input = scanner.nextLine();
@@ -56,9 +56,9 @@ public class Launch {
                 System.out.println("Vous devez entrer un nombre entier !");
             } finally {
                 scanner.nextLine();
-                return number;
             }
         }
+        return number;
     }
 
     private void launchAction(int choice){
