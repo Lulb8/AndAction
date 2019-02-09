@@ -37,7 +37,7 @@ public class Launch {
                 number = Integer.parseInt(scanner.next());
                 isNumber = false;
             } catch (NumberFormatException e) {
-                System.out.println("Vous devez entrer un nombre !");
+                System.out.println("Vous devez entrer un nombre entier !");
             }
         }
         return number;
