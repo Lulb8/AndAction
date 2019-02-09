@@ -3,9 +3,9 @@ import java.util.Scanner;
 public class Launch {
 
     private boolean keepRunning = true;
-    Scanner scanner = new Scanner(System.in);
+    private Scanner scanner = new Scanner(System.in);
 
-    public void initialize(Studio studio, MenuBar menuBar){
+    void initialize(Studio studio, MenuBar menuBar){
         System.out.println("Nom du studio : ");
         String studioName = scanner.nextLine();
         studio.setName(studioName);
@@ -20,7 +20,7 @@ public class Launch {
         System.out.println(menuBar.getBudget());*/
     }
 
-    public void loop(){
+    void loop(){
         while (keepRunning){
             System.out.println("Que voulez vous faire?");
             int choice = checkNumber();
@@ -28,7 +28,7 @@ public class Launch {
         }
     }
 
-    int checkNumber() {
+    private int checkNumber() {
         int number = 0;
         //String input = scanner.nextLine();
         boolean isNumber = true;
@@ -43,7 +43,7 @@ public class Launch {
         return number;
     }
 
-    public void launchAction(int choice){
+    private void launchAction(int choice){
         switch (choice){
             case 1:
                 System.out.println("1");break;
@@ -62,7 +62,7 @@ public class Launch {
         }
     }
 
-    void quitApp(){
+    private void quitApp(){
         System.out.println("Au revoir !");
         keepRunning = false;
     }
