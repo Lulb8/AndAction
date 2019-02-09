@@ -1,3 +1,4 @@
+import java.util.EmptyStackException;
 import java.util.Scanner;
 
 public class Launch {
@@ -9,15 +10,12 @@ public class Launch {
         System.out.println("Nom du studio : ");
         String studioName = scanner.nextLine();
         studio.setName(studioName);
-        /*System.out.println("Le nom du studio est : ");
-        System.out.println(studio.getName());*/
+        System.out.println("Le nom du studio est : " + studio.getName());
 
         System.out.println("Budget du studio : ");
-        //String budgetStudio = scanner.nextLine();
         int budgetStudio = checkNumber();
         menuBar.setBudget(budgetStudio);
-        /*System.out.println("Le budget du studio est : ");
-        System.out.println(menuBar.getBudget());*/
+        System.out.println("Le budget du studio est : " + menuBar.getBudget());
     }
 
     void loop(){
@@ -26,6 +24,24 @@ public class Launch {
             int choice = checkNumber();
             this.launchAction(choice);
         }
+    }
+
+    private String checkString(){
+        String word ="";
+        boolean isWord = true;
+        while (isWord) {
+            try {
+                word = scanner.nextLine();
+                if (word.length() >= 1 && word.length() <= 20) {
+                    isWord = false;
+                } else {
+                    throw new StringLengthException("'" + word + "' doit être compris entre 1 et 20 caractères.");
+                }
+            } catch (StringLengthException e) {
+                System.out.println("Mauvaise longueur de la chaîne de caractères: " + word);
+            }
+        }
+        return word;
     }
 
     private int checkNumber() {
@@ -40,9 +56,9 @@ public class Launch {
                 System.out.println("Vous devez entrer un nombre entier !");
             } finally {
                 scanner.nextLine();
+                return number;
             }
         }
-        return number;
     }
 
     private void launchAction(int choice){
