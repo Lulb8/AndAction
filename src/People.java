@@ -9,6 +9,8 @@ public abstract class People {
     public String picturePath;
     public ArrayList<String> specializedGenres;
     public String profession;
+
+
     public String experience;
 
     /**
@@ -19,6 +21,12 @@ public abstract class People {
         return name;
     }
 
+    /**
+     * @param name
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
     /**
      *
      * @return double
@@ -81,5 +89,19 @@ public abstract class People {
      */
     public void setSpecializedGenres(ArrayList<String> specializedGenres) {
         this.specializedGenres = specializedGenres;
+    }
+
+    /**
+     * @return
+     */
+    public String getExperience() {
+        return experience;
+    }
+
+    /**
+     * @param experience
+     */
+    public void setExperience(String experience) {
+        this.experience = experience;
     }
 }
