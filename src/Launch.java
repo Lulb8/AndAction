@@ -38,6 +38,8 @@ public class Launch {
                 isNumber = false;
             } catch (NumberFormatException e) {
                 System.out.println("Vous devez entrer un nombre entier !");
+            } finally {
+                scanner.nextLine();
             }
         }
         return number;
