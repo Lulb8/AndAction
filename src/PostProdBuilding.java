@@ -2,19 +2,30 @@ import java.util.ArrayList;
 
 public class PostProdBuilding  {
 
-    public ArrayList<Movie> moviesDone = null;
+    public ArrayList<Movie> moviesDone;
 
     public void launchPostProd() {
-        System.out.println("Welcome to Post Production Building");
+        System.out.println("Welcome to the Post Production Building");
+        printMovieInfo();
+        System.out.println("0: Sortir du bâtiment");
+
+
     }
 
     private void printMovieInfo() {
-        if (moviesDone == null) {
-            System.out.println("Aucun film n'a été commencé pour le moment");
-        }
-        else {
-            Movie lastMovie = moviesDone.get(moviesDone.size() - 1);
-            lastMovie.toString();
+            if (moviesDone == null) {
+                System.out.println("Aucun film n'a été commencé pour le moment");
+            }
+            else {
+                Movie lastMovie = moviesDone.get(moviesDone.size() - 1);
+                switch (FilmSet.filmingIsOver) {
+                    case 0:
+                        System.out.println("Le tournage de " + lastMovie.getName() + " n'est pas encore fini, revenez "
+                                + "plus tard pour choisir le budget pour la publicité du film");
+                    case 1:
+                        System.out.println("1: Afficher les caractéristiques du film");
+                        System.out.println("2: Choisir un budget pour la publicité de " + lastMovie.getName());
+                    }
         }
 
     }
