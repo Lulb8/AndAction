@@ -6,6 +6,7 @@ public class Movie
     public String name;
     public String genre;
     public double filmBudget;
+    public int pubBudget;
     public int numberOfActors;
     public ArrayList<Actor> actors;
     public Director director;

@@ -1,3 +1,5 @@
+import javafx.scene.control.Menu;
+
 import java.util.EmptyStackException;
 import java.util.Scanner;
 
@@ -5,6 +7,7 @@ public class Launch {
 
     private boolean keepRunning = true;
     private Scanner scanner = new Scanner(System.in);
+
 
     void initialize(Studio studio, MenuBar menuBar){
         System.out.println("Nom du studio : ");
