@@ -13,6 +13,7 @@ public class Movie
     public Scriptwriter scriptwriter;
     public int numberOfMonths;
     public int boxOffice;
+    public int state; //état du film: 0 si le tournage n'est pas fait, 1 sinon
     //public time releaseDate;
 
     @Override

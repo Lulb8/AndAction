@@ -72,7 +72,10 @@ public class Launch {
             case 4:
                 System.out.println("4");break;
             case 5:
-                System.out.println("5");break;
+                System.out.println("5");
+                PostProdBuilding postProd = new PostProdBuilding();
+                postProd.launchPostProd();
+                break;
             case 6:
                 this.quitApp();break;
             default:
