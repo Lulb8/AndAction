@@ -74,7 +74,8 @@ public class Launch {
             case 2:
                 System.out.println("2");break;
             case 3:
-                System.out.println("3");break;
+                System.out.println("3");
+                break;
             case 4:
                 System.out.println("4");break;
             case 5:

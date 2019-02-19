@@ -9,8 +9,6 @@ public abstract class People {
     public String picturePath;
     public ArrayList<String> specializedGenres;
     public String profession;
-
-
     public String experience;
 
     /**

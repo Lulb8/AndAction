@@ -88,6 +88,20 @@ public class Movie
     }
 
     /**
+     * @return
+     */
+    public ArrayList<Actor> getActors() {
+        return actors;
+    }
+
+    /**
+     * @param actors
+     */
+    public void setActors(ArrayList<Actor> actors) {
+        this.actors = actors;
+    }
+
+    /**
      *
      * @return Director
      */

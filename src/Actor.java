@@ -11,12 +11,32 @@ public class Actor extends People
         return physicalDescription;
     }
 
-    public Actor createActor(String name, double salary, String physicalDescription) {
-        Actor a = new Actor();
-        a.name=name;
-        a.salary=salary;
-        a.physicalDescription=physicalDescription;
-        return a;
+    /**
+     * @param physicalDescription
+     */
+    public void setPhysicalDescription(String physicalDescription) {
+        this.physicalDescription = physicalDescription;
     }
 
+    /**
+     * @param name
+     * @param salary
+     * @param physicalDescription
+     * @return
+     */
+    public Actor createActor(String name, double salary, String physicalDescription) {
+        setName(name);
+        setSalary(salary);
+        setPhysicalDescription(physicalDescription);
+        return this;
+    }
+
+    /**
+     * @return
+     */
+    public String toString() {
+        return this.getName()
+                +" est décrit comme "+this.getPhysicalDescription()
+                +". Son salaire est "+this.getSalary()+"\n";
+    }
 }
