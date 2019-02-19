@@ -11,4 +11,8 @@ public class Director extends People{
         d.setSalary(salary);
         return d;
     }
+    public String toString() {
+        return this.getName()
+                +" a pour salaire : "+this.getSalary()+"\n";
+    }
 }

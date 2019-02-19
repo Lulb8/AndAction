@@ -2,13 +2,6 @@ public class ScriptwritersBuilding {
 
     /*
     Scanner scan = new Scanner(System.in);
-
-    do {
-
-			System.out.println("Quelle est le titre de votre film ?");
-			String choice = scan.next();
-			System.out.println("Le titre est + choice);
-      }
       
 
     public ArrayList<Scriptwriter> InitializeScriptwriter(ArrayList<Scriptwriter> scriptwriters) {

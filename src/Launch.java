@@ -1,5 +1,6 @@
 //import javafx.scene.control.Menu;
 
+import java.util.ArrayList;
 import java.util.EmptyStackException;
 import java.util.Scanner;
 
@@ -72,7 +73,11 @@ public class Launch {
             case 1:
                 scriptwriterBuilding();break;
             case 2:
-                System.out.println("2");break;
+                System.out.println("2");
+                Movie currentMovie = new Movie();
+                ActorsBuilding actorsBuilding = new ActorsBuilding();
+                actorsBuilding.launchActBuild(currentMovie);
+                break;
             case 3:
                 System.out.println("3");
                 break;

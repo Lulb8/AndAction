@@ -28,6 +28,26 @@ public class ActorsBuilding {
         return directors;
     }
 
+    public void printActors(ArrayList<Actor> actors) {
+        for (Actor a : actors) {
+            System.out.print(getActor(a));
+        }
+    }
+
+    public Actor getActor(Actor a) {
+        return a;
+    }
+
+    public void printDirectors(ArrayList<Director> directors) {
+        for (Director d : directors) {
+            System.out.print(getDirector(d));
+        }
+    }
+
+    public Director getDirector(Director d) {
+        return d;
+    }
+
     public ArrayList<Actor> setActors(Movie movie) {
         ArrayList<Actor> actorsChosen = new ArrayList<Actor>();
         ArrayList<Actor> actors = new ArrayList<Actor>();
@@ -39,9 +59,9 @@ public class ActorsBuilding {
             System.out.print("Choisis un acteur en tapant son nom\n"+ actors);
             String name = sc.next();
             for (Actor a : actors) {
-                if (a.name.equals(name)) {
-                    System.out.print("Vous avez choisi l'acteur " + a.name);
-                    actorsChosen.add(a);
+                if (a.getName().equals(name)) {
+                    System.out.print("Vous avez choisi l'acteur " + a.getName()+"\n");
+                    actorsChosen.add(getActor(a));
                     it+=1;
                 }
             }
@@ -56,14 +76,15 @@ public class ActorsBuilding {
         Director directorChosen = new Director();
         ArrayList<Director> directors = new ArrayList<Director>();
         directors = InitializeDirectors(directors);
-        int nbActors = movie.actors.size();
+        System.out.println(directors);
         boolean inLoop = true;
         do {
-            System.out.print("Choisis un réalisateur en tapant son nom :\n"+ directors);
+            System.out.print("Choisis un réalisateur en tapant son nom :\n");
+            printDirectors(directors);
             String name = sc.next();
             for (Director d : directors) {
                 if (d.name.equals(name)) {
-                    System.out.print("Vous avez choisi le réalisateur " + d.name);
+                    System.out.print("Vous avez choisi le réalisateur " + d.getName());
                     directorChosen = d;
                 }
             }
@@ -76,24 +97,26 @@ public class ActorsBuilding {
 
     public void launchActBuild(Movie movie) {
         System.out.print("Bienvenue au bureau des acteurs !\n");
-        try {
-            if (movie.director==null) {
-                setDirector(movie);
-            }
-            else {
-                System.out.print("\nVoici le réalisateur de votre film :\n");
-                System.out.print(movie.getDirector());
-            }
-            if (movie.actors.size()==0) {
+        if (movie.getDirector()==null) {
+            System.out.println("Aucun réalisateur pour votre film n'a été choisi pour le moment.");
+            setDirector(movie);
+        }
+        if (movie.getActors()==null) {
+            System.out.println("No actors");
+        }
+        //System.out.print("\nVoici le réalisateur de votre film :\n");
+            //System.err.println("Aucun réalisateur choisi");
+            //setDirector(movie);
+        }
+        /*
+            if (movie.getActors().size()==0) {
                 setActors(movie);
             }
             else {
                 System.out.print("\nVoici les acteurs de votre film :\n");
                 System.out.print(movie.actors);
             }
-        } catch (Exception e) {
-            System.err.println("error");
-        }
-    }
-
+     */
 }
+
+
