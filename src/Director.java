@@ -6,11 +6,11 @@ public class Director extends People{
      * @return
      */
     public Director createDirector(String name, double salary) {
-        Director d = new Director();
-        d.setName(name);
-        d.setSalary(salary);
-        return d;
+        setName(name);
+        setSalary(salary);
+        return this;
     }
+
     public String toString() {
         return this.getName()
                 +" a pour salaire : "+this.getSalary()+"\n";
