@@ -8,6 +8,8 @@ public class Launch {
     private boolean keepRunning = true;
     private Scanner scanner = new Scanner(System.in);
 
+    ScriptwritersBuilding scriptwritersBuilding = new ScriptwritersBuilding();
+
 
     void initialize(Studio studio, MenuBar menuBar){
         System.out.println("Nom du studio : ");
@@ -24,6 +26,7 @@ public class Launch {
     void loop(){
         while (keepRunning){
             System.out.println("Que voulez vous faire?");
+            menu();
             int choice = checkNumber();
             this.launchAction(choice);
         }
@@ -67,7 +70,7 @@ public class Launch {
     private void launchAction(int choice){
         switch (choice){
             case 1:
-                System.out.println("1");break;
+                scriptwriterBuilding();break;
             case 2:
                 System.out.println("2");break;
             case 3:
@@ -89,5 +92,20 @@ public class Launch {
     private void quitApp(){
         System.out.println("Au revoir !");
         keepRunning = false;
+    }
+
+    private void scriptwriterBuilding() {
+        System.out.println("Quelle est le titre de votre film ?");
+        String choice = scanner.next();
+        System.out.println("Le titre de votre nouveau film est " + choice);
+    }
+
+    private void menu() {
+        System.out.println("1 - Bureau des scénaristes\n" +
+                "2 - Bureau des acteurs\n" +
+                "3 - Bureau de pré-production\n" +
+                "4 - Plateau de tournage\n" +
+                "5 - Bureau de post-production\n" +
+                "6 - Quitter le jeu");
     }
 }
