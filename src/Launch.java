@@ -14,8 +14,7 @@ public class Launch {
     ActorsBuilding actorsBuilding = new ActorsBuilding();
     PostProdBuilding postProd = new PostProdBuilding();
 
-
-
+    Movie currentMovie;
 
     void initialize(Studio studio, MenuBar menuBar){
         System.out.println("Nom du studio : ");
@@ -80,7 +79,7 @@ public class Launch {
                 break;
             case 2:
                 System.out.println("2");
-                Movie currentMovie = new Movie();
+                Movie currentMovie = new Movie(); //TODO a retirer car le nouveau film est créé dans scriptwriter building
                 actorsBuilding.launchActBuild(currentMovie);
                 break;
             case 3:
@@ -95,9 +94,11 @@ public class Launch {
                 postProd.launchPostProd();
                 break;
             case 6:
-                this.quitApp();break;
+                this.quitApp();
+                break;
             default:
-                System.out.println("Ce batiment n'existe pas !");break;
+                System.out.println("Ce batiment n'existe pas !");
+                break;
         }
     }
 
@@ -105,8 +106,6 @@ public class Launch {
         System.out.println("Au revoir !");
         keepRunning = false;
     }
-
-
 
     private void menu() {
         System.out.println("1 - Bureau des scénaristes\n" +

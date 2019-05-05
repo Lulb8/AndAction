@@ -108,6 +108,7 @@ public class ActorsBuilding {
             //System.err.println("Aucun réalisateur choisi");
             //setDirector(movie);
         }
+
         /*
             if (movie.getActors().size()==0) {
                 setActors(movie);
