@@ -19,9 +19,9 @@ public class MovieSet extends  BuildingsMenu {
     private void selectChoice(int choice) {
         switch (choice) {
             case 1: //afficher caractéristiques du film
-                Movie currentMovie = movieFilming.get(movieFilming.size() - 1);
-                currentMovie.toString();
-                if (movieFilming == null) {
+                Movie currentMovie = movieFilming.get(movieFilming.size() - 1); //TODO Recuperer le film créé dans les autres batiments
+                currentMovie.toString(); //TODO
+                if (currentMovie == null) {
                     System.out.println("Aucun film n'a été commencé pour le moment");
                 } else {
                     System.out.println("Le titre du film est : " + currentMovie.getName()

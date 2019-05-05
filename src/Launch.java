@@ -10,11 +10,10 @@ public class Launch {
     private Scanner scanner = new Scanner(System.in);
 
     ScriptwritersBuilding scriptwritersBuilding = new ScriptwritersBuilding();
-    MovieSet movieSet = new MovieSet();
     ActorsBuilding actorsBuilding = new ActorsBuilding();
+    PreProductionBuilding preProdBuilding = new PreProductionBuilding();
+    MovieSet movieSet = new MovieSet();
     PostProdBuilding postProd = new PostProdBuilding();
-
-    Movie currentMovie;
 
     void initialize(Studio studio, MenuBar menuBar){
         System.out.println("Nom du studio : ");
@@ -75,26 +74,35 @@ public class Launch {
     private void launchAction(int choice){
         switch (choice){
             case 1:
-                scriptwritersBuilding.launchScriptwriter();
+                scriptwritersBuilding.launchScriptwriter(); //TODO retourner le film en production
                 break;
             case 2:
-                System.out.println("2");
                 Movie currentMovie = new Movie(); //TODO a retirer car le nouveau film est créé dans scriptwriter building
                 actorsBuilding.launchActBuild(currentMovie);
                 break;
             case 3:
-                System.out.println("3");
+                preProdBuilding.launchPreProd();
                 break;
             case 4:
-                System.out.println("4");
-                movieSet.launchMovieSet();
+                movieSet.launchMovieSet(); //TODO passer en argument le film en production
                 break;
             case 5:
-                System.out.println("5");
-                postProd.launchPostProd();
+                postProd.launchPostProd(); //TODO passer en argument le film en production
                 break;
             case 6:
-                this.quitApp();
+                boolean keepRunningQuit = true;
+                while (keepRunningQuit) {
+                    System.out.println("Etes-vous sûr de vouloir quitter le jeu ? (O/n)");
+                    char choiceQuit = scanner.next().charAt(0);
+                    if (choiceQuit == 'O') {
+                        this.quitApp();
+                        break;
+                    } else if (choiceQuit == 'n') {
+                        break;
+                    } else {
+                        System.out.println("Veuiller écrire O pour quitter le jeu ou n pour continuer.");
+                    }
+                }
                 break;
             default:
                 System.out.println("Ce batiment n'existe pas !");
