@@ -49,6 +49,7 @@ public class PostProdBuilding extends  BuildingsMenu {
             case 3://quitter le bâtiment
                 inPPBuilding = false;
                 System.out.println("Vous avez quitté le bâtiment de post-production.");
+                break;
         }
     }
 
