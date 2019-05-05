@@ -10,6 +10,11 @@ public class Launch {
     private Scanner scanner = new Scanner(System.in);
 
     ScriptwritersBuilding scriptwritersBuilding = new ScriptwritersBuilding();
+    MovieSet movieSet = new MovieSet();
+    ActorsBuilding actorsBuilding = new ActorsBuilding();
+    PostProdBuilding postProd = new PostProdBuilding();
+
+
 
 
     void initialize(Studio studio, MenuBar menuBar){
@@ -21,7 +26,7 @@ public class Launch {
         System.out.println("Budget du studio : ");
         int budgetStudio = checkNumber();
         menuBar.setBudget(budgetStudio);
-        System.out.println("Le budget du studio est : " + menuBar.getBudget());
+        System.out.println("Le budget du studio est : " + menuBar.getBudget()+ " €");
     }
 
     void loop(){
@@ -71,21 +76,22 @@ public class Launch {
     private void launchAction(int choice){
         switch (choice){
             case 1:
-                scriptwriterBuilding();break;
+                scriptwritersBuilding.launchScriptwriter();
+                break;
             case 2:
                 System.out.println("2");
                 Movie currentMovie = new Movie();
-                ActorsBuilding actorsBuilding = new ActorsBuilding();
                 actorsBuilding.launchActBuild(currentMovie);
                 break;
             case 3:
                 System.out.println("3");
                 break;
             case 4:
-                System.out.println("4");break;
+                System.out.println("4");
+                movieSet.launchMovieSet();
+                break;
             case 5:
                 System.out.println("5");
-                PostProdBuilding postProd = new PostProdBuilding();
                 postProd.launchPostProd();
                 break;
             case 6:
@@ -100,11 +106,7 @@ public class Launch {
         keepRunning = false;
     }
 
-    private void scriptwriterBuilding() {
-        System.out.println("Quelle est le titre de votre film ?");
-        String choice = scanner.next();
-        System.out.println("Le titre de votre nouveau film est " + choice);
-    }
+
 
     private void menu() {
         System.out.println("1 - Bureau des scénaristes\n" +
