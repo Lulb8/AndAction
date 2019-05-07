@@ -1,7 +1,3 @@
-//import javafx.scene.control.Menu;
-
-import java.util.ArrayList;
-import java.util.EmptyStackException;
 import java.util.Scanner;
 
 public class Launch {
@@ -12,7 +8,6 @@ public class Launch {
 
     ScriptwritersBuilding scriptwritersBuilding = new ScriptwritersBuilding();
     ActorsBuilding actorsBuilding = new ActorsBuilding();
-    PreProductionBuilding preProdBuilding = new PreProductionBuilding();
     MovieSet movieSet = new MovieSet();
     PostProdBuilding postProd = new PostProdBuilding();
 
@@ -88,15 +83,12 @@ public class Launch {
                 //System.out.print(currentMovie);
                 break;
             case 3:
-                preProdBuilding.launchPreProd();
-                break;
-            case 4:
                 movieSet.launchMovieSet(); //TODO passer en argument le film en production
                 break;
-            case 5:
+            case 4:
                 postProd.launchPostProd(); //TODO passer en argument le film en production
                 break;
-            case 6:
+            case 5:
                 boolean keepRunningQuit = true;
                 while (keepRunningQuit) {
                     System.out.println("Etes-vous sûr de vouloir quitter le jeu ? (O/n)");
@@ -125,9 +117,8 @@ public class Launch {
     private void menu() {
         System.out.println("1 - Bureau des scénaristes\n" +
                 "2 - Bureau des acteurs\n" +
-                "3 - Bureau de pré-production\n" +
-                "4 - Plateau de tournage\n" +
-                "5 - Bureau de post-production\n" +
-                "6 - Quitter le jeu");
+                "3 - Plateau de tournage\n" +
+                "4 - Bureau de post-production\n" +
+                "5 - Quitter le jeu");
     }
 }
