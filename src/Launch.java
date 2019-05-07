@@ -8,6 +8,7 @@ public class Launch {
 
     private boolean keepRunning = true;
     private Scanner scanner = new Scanner(System.in);
+    Movie currentMovie;
 
     ScriptwritersBuilding scriptwritersBuilding = new ScriptwritersBuilding();
     ActorsBuilding actorsBuilding = new ActorsBuilding();
@@ -74,11 +75,17 @@ public class Launch {
     private void launchAction(int choice){
         switch (choice){
             case 1:
-                scriptwritersBuilding.launchScriptwriter(); //TODO retourner le film en production
+                currentMovie=scriptwritersBuilding.launchScriptwriter(); //TODO ajouter le sciptwriter
+                //System.out.print(currentMovie);
                 break;
             case 2:
-                Movie currentMovie = new Movie(); //TODO a retirer car le nouveau film est créé dans scriptwriter building
+                if (currentMovie==null) {
+                    System.out.print("Rendez-vous dans le bureau des scénaristes\n");
+                }
+                else {
                 actorsBuilding.launchActBuild(currentMovie);
+                }
+                //System.out.print(currentMovie);
                 break;
             case 3:
                 preProdBuilding.launchPreProd();

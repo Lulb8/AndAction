@@ -8,7 +8,7 @@ public class Movie
     public double filmBudget;
     public int pubBudget;
     public int numberOfActors;
-    public ArrayList<Actor> actors;
+    public Actors actors;
     public Director director;
     public TechnicalCrew technicalCrew;
     public Scriptwriter scriptwriter;
@@ -90,14 +90,14 @@ public class Movie
     /**
      * @return
      */
-    public ArrayList<Actor> getActors() {
+    public Actors getActors() {
         return actors;
     }
 
     /**
      * @param actors
      */
-    public void setActors(ArrayList<Actor> actors) {
+    public void setActors(Actors actors) {
         this.actors = actors;
     }
 
@@ -188,6 +188,7 @@ public class Movie
     public void setState(int state) {
         this.state = state;
     }
+
 
     /**
      *

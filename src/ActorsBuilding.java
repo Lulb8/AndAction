@@ -1,21 +1,13 @@
 import java.util.*;
 
-public class ActorsBuilding {
+public class ActorsBuilding extends BuildingsMenu{
 
-    Scanner sc = new Scanner(System.in);
+    private boolean inSwBuilding;
+    Scanner scanner = new Scanner(System.in);
+    Actors actorsChosen=new Actors();
+    Actors actors;
 
-    public ArrayList<Actor> InitializeActors(ArrayList<Actor> actors) {
-        Actor a1 = new Actor(), a2 = new Actor(), a3 = new Actor(), a4 = new Actor();
-        a1.createActor("Nom1",1000,"red-haired");
-        a2.createActor("Nom2",500,"blond-haired");
-        a3.createActor("Nom3",1100,"tall");
-        a4.createActor("Nom4",850,"fit and black-haired");
-        actors.add(a1);
-        actors.add(a2);
-        actors.add(a3);
-        actors.add(a4);
-        return actors;
-    }
+
 
     public ArrayList<Director> InitializeDirectors(ArrayList<Director> directors) {
         Director d1 = new Director(), d2 = new Director(), d3 = new Director();
@@ -28,11 +20,7 @@ public class ActorsBuilding {
         return directors;
     }
 
-    public void printActors(ArrayList<Actor> actors) {
-        for (Actor a : actors) {
-            System.out.print(getActor(a));
-        }
-    }
+
 
     public Actor getActor(Actor a) {
         return a;
@@ -48,27 +36,29 @@ public class ActorsBuilding {
         return d;
     }
 
-    public ArrayList<Actor> setActors(Movie movie) {
-        ArrayList<Actor> actorsChosen = new ArrayList<Actor>();
-        ArrayList<Actor> actors = new ArrayList<Actor>();
-        actors = InitializeActors(actors);
-        int nbActors = movie.actors.size();
-        int it = 0;
+    public Actors setActors() {
+        actors=new Actors();
+        actors.InitializeActors();
+        actorsChosen = new Actors();
+        //int nbActors = movie.actors.size();
+        //int it = 0;
         boolean inLoop = true;
         do {
             System.out.print("Choisis un acteur en tapant son nom\n"+ actors);
-            String name = sc.next();
-            for (Actor a : actors) {
+            String name = scanner.next();
+            for (Actor a : actors.getActors()) {
                 if (a.getName().equals(name)) {
                     System.out.print("Vous avez choisi l'acteur " + a.getName()+"\n");
-                    actorsChosen.add(getActor(a));
-                    it+=1;
+                    actorsChosen.addActor(a);
+                    //it+=1;
                 }
             }
-            System.out.println("Voulez-vous ajouter un nouvel acteur (o/n)");
-            inLoop = sc.nextLine().equals("o");
-        } while (it<nbActors && inLoop);
-        movie.setActors(actorsChosen);
+            System.out.println("Voulez-vous ajouter un nouvel acteur (o/n)"+actorsChosen.toString());
+            /*
+            inLoop = scanner.nextLine().equals("o");
+             */
+            inLoop=false;
+        } while (/*it<nbActors &&*/ inLoop);
         return actorsChosen;
     }
 
@@ -81,7 +71,7 @@ public class ActorsBuilding {
         do {
             System.out.print("Choisis un réalisateur en tapant son nom :\n");
             printDirectors(directors);
-            String name = sc.next();
+            String name = scanner.next();
             for (Director d : directors) {
                 if (d.name.equals(name)) {
                     System.out.print("Vous avez choisi le réalisateur " + d.getName());
@@ -89,25 +79,68 @@ public class ActorsBuilding {
                 }
             }
             System.out.println("Voulez-vous changer le réalisateur de votre film ? (o/n)");
-            inLoop = sc.nextLine().equals("o");
+            inLoop = scanner.nextLine().equals("o");
         } while (inLoop);
         movie.setDirector(directorChosen);
         return directorChosen;
     }
 
-    public void launchActBuild(Movie movie) {
+    public Movie launchActBuild(Movie currentMovie) {
         System.out.print("Bienvenue au bureau des acteurs !\n");
-        if (movie.getDirector()==null) {
-            System.out.println("Aucun réalisateur pour votre film n'a été choisi pour le moment.");
-            setDirector(movie);
+        inSwBuilding = true;
+        while (inSwBuilding) {
+            System.out.println("1: Choisir des acteurs\n2: Choisir un réalisateur\n3: Sortir du bâtiment");
+            int choice = this.checkNumber();
+            this.selectChoice(choice,currentMovie);
         }
-        if (movie.getActors()==null) {
-            System.out.println("No actors");
-        }
+        return currentMovie;
         //System.out.print("\nVoici le réalisateur de votre film :\n");
             //System.err.println("Aucun réalisateur choisi");
             //setDirector(movie);
         }
+
+    private void selectChoice (int choice,Movie currentMovie) {
+        switch (choice){
+            case 1: //choisir les acteurs
+                /*
+                System.out.println("Quelle est le titre de votre film ?");
+                String title = scanner.next();
+                System.out.println("Le titre de votre nouveau film est " + title);
+                currentMovie.setName(title);
+                currentMovie.setState(0);
+                */
+                //if ((currentMovie.getState())==0) {
+                if (!currentMovie.getName().equals(null)) {
+                currentMovie.setActors(this.setActors());  }
+                /*
+                }
+                else if (currentMovie.getState()==1) {
+                    System.out.print("Votre film est en tournage");
+                }
+                else {
+                    System.out.print("Rendez-vous au bureau des scénaristes pour créer ton film");
+
+                }
+                */
+                break;
+
+            case 2://choisir un scénariste
+                System.out.println("Quelle est le scénariste de votre film ?");
+                String swName = scanner.next();
+                System.out.println("Le titre de votre nouveau scénariste est " + swName);
+
+                break;
+            case 3://quitter le bâtiment
+                inSwBuilding = false;
+                System.out.println("Vous avez quitté le bâtiment des scénaristes.");
+                break;
+            default:
+                System.out.println("Veuillez entrer un caractère valable !");
+                break;
+        }
+    }
+
+
 
         /*
             if (movie.getActors().size()==0) {
@@ -118,6 +151,15 @@ public class ActorsBuilding {
                 System.out.print(movie.actors);
             }
      */
+
+/*
+        if (movie.getDirector()==null) {
+                System.out.println("Aucun réalisateur pour votre film n'a été choisi pour le moment.");
+                setDirector(movie);
+                }
+                if (movie.getActors()==null) {
+                System.out.println("No actors");
+                */
 }
 
 

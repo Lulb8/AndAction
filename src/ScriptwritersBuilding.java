@@ -5,8 +5,9 @@ public class ScriptwritersBuilding extends BuildingsMenu{
 
     private boolean inSwBuilding;
     Scanner scanner = new Scanner(System.in);
+    Movie currentMovie = new Movie();
 
-    public void launchScriptwriter() {
+    public Movie launchScriptwriter() {
         System.out.println("Bienvenue au bâtiment des scénaristes !");
         inSwBuilding = true;
         while (inSwBuilding) {
@@ -14,12 +15,12 @@ public class ScriptwritersBuilding extends BuildingsMenu{
             int choice = this.checkNumber();
             this.selectChoice(choice);
         }
+        return currentMovie;
     }
 
     private void selectChoice (int choice) {
         switch (choice){
             case 1: //choisir le titre du film
-                Movie currentMovie = new Movie();
                 System.out.println("Quelle est le titre de votre film ?");
                 String title = scanner.next();
                 System.out.println("Le titre de votre nouveau film est " + title);
