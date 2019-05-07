@@ -14,7 +14,7 @@ public class Movie
     public Scriptwriter scriptwriter;
     public int numberOfMonths;
     public int boxOffice;
-    public int state; //état du film: 0 si le tournage n'est pas fait, 1 sinon
+    public int state; //état du film: 0 si le tournage n'a pas commencé, 1 si il est en tournage, 2 s'il est fini
     //public time releaseDate;
 
     @Override
@@ -181,6 +181,13 @@ public class Movie
         this.boxOffice = boxOffice;
     }
 
+    public int getState() {
+        return state;
+    }
+
+    public void setState(int state) {
+        this.state = state;
+    }
 
     /**
      *

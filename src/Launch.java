@@ -10,7 +10,10 @@ public class Launch {
     private Scanner scanner = new Scanner(System.in);
 
     ScriptwritersBuilding scriptwritersBuilding = new ScriptwritersBuilding();
-
+    ActorsBuilding actorsBuilding = new ActorsBuilding();
+    PreProductionBuilding preProdBuilding = new PreProductionBuilding();
+    MovieSet movieSet = new MovieSet();
+    PostProdBuilding postProd = new PostProdBuilding();
 
     void initialize(Studio studio, MenuBar menuBar){
         System.out.println("Nom du studio : ");
@@ -21,7 +24,7 @@ public class Launch {
         System.out.println("Budget du studio : ");
         int budgetStudio = checkNumber();
         menuBar.setBudget(budgetStudio);
-        System.out.println("Le budget du studio est : " + menuBar.getBudget());
+        System.out.println("Le budget du studio est : " + menuBar.getBudget()+ " €");
     }
 
     void loop(){
@@ -71,39 +74,45 @@ public class Launch {
     private void launchAction(int choice){
         switch (choice){
             case 1:
-                scriptwriterBuilding();break;
+                scriptwritersBuilding.launchScriptwriter(); //TODO retourner le film en production
+                break;
             case 2:
-                System.out.println("2");
-                Movie currentMovie = new Movie();
-                ActorsBuilding actorsBuilding = new ActorsBuilding();
+                Movie currentMovie = new Movie(); //TODO a retirer car le nouveau film est créé dans scriptwriter building
                 actorsBuilding.launchActBuild(currentMovie);
                 break;
             case 3:
-                System.out.println("3");
+                preProdBuilding.launchPreProd();
                 break;
             case 4:
-                System.out.println("4");break;
+                movieSet.launchMovieSet(); //TODO passer en argument le film en production
+                break;
             case 5:
-                System.out.println("5");
-                PostProdBuilding postProd = new PostProdBuilding();
-                postProd.launchPostProd();
+                postProd.launchPostProd(); //TODO passer en argument le film en production
                 break;
             case 6:
-                this.quitApp();break;
+                boolean keepRunningQuit = true;
+                while (keepRunningQuit) {
+                    System.out.println("Etes-vous sûr de vouloir quitter le jeu ? (O/n)");
+                    char choiceQuit = scanner.next().charAt(0);
+                    if (choiceQuit == 'O') {
+                        this.quitApp();
+                        break;
+                    } else if (choiceQuit == 'n') {
+                        break;
+                    } else {
+                        System.out.println("Veuiller écrire O pour quitter le jeu ou n pour continuer.");
+                    }
+                }
+                break;
             default:
-                System.out.println("Ce batiment n'existe pas !");break;
+                System.out.println("Ce batiment n'existe pas !");
+                break;
         }
     }
 
     private void quitApp(){
         System.out.println("Au revoir !");
         keepRunning = false;
-    }
-
-    private void scriptwriterBuilding() {
-        System.out.println("Quelle est le titre de votre film ?");
-        String choice = scanner.next();
-        System.out.println("Le titre de votre nouveau film est " + choice);
     }
 
     private void menu() {

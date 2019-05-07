@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class ActorsBuilding extends BuildingsMenu {
+public class ActorsBuilding {
 
     Scanner sc = new Scanner(System.in);
 
@@ -52,12 +52,11 @@ public class ActorsBuilding extends BuildingsMenu {
         ArrayList<Actor> actorsChosen = new ArrayList<Actor>();
         ArrayList<Actor> actors = new ArrayList<Actor>();
         actors = InitializeActors(actors);
-        int nbActors = movie.getActors().size();
+        int nbActors = movie.actors.size();
         int it = 0;
         boolean inLoop = true;
         do {
-            System.out.print("Choisis un acteur en tapant son nom\n");
-            printActors(actors);
+            System.out.print("Choisis un acteur en tapant son nom\n"+ actors);
             String name = sc.next();
             for (Actor a : actors) {
                 if (a.getName().equals(name)) {
@@ -77,57 +76,48 @@ public class ActorsBuilding extends BuildingsMenu {
         Director directorChosen = new Director();
         ArrayList<Director> directors = new ArrayList<Director>();
         directors = InitializeDirectors(directors);
+        System.out.println(directors);
         boolean inLoop = true;
         do {
             System.out.print("Choisis un réalisateur en tapant son nom :\n");
             printDirectors(directors);
             String name = sc.next();
             for (Director d : directors) {
-                if (d.getName().equals(name)) {
+                if (d.name.equals(name)) {
                     System.out.print("Vous avez choisi le réalisateur " + d.getName());
                     directorChosen = d;
                 }
             }
-            System.out.println("\nVoulez-vous changer le réalisateur de votre film ? (o/n)");
-            String scan = sc.nextLine();
-            inLoop = scan.equals("o");
+            System.out.println("Voulez-vous changer le réalisateur de votre film ? (o/n)");
+            inLoop = sc.nextLine().equals("o");
         } while (inLoop);
         movie.setDirector(directorChosen);
         return directorChosen;
     }
 
     public void launchActBuild(Movie movie) {
-
         System.out.print("Bienvenue au bureau des acteurs !\n");
-        boolean inPPBuilding = true;
-        while (inPPBuilding) {
-            System.out.print("Voici le réalisateur de votre film :\n");
-            System.out.println(movie.getDirector()+"\n");
-            System.out.print("Voici les acteurs de votre film :\n");
-            System.out.println(movie.getActors()+"\n");
+        if (movie.getDirector()==null) {
+            System.out.println("Aucun réalisateur pour votre film n'a été choisi pour le moment.");
+            setDirector(movie);
+        }
+        if (movie.getActors()==null) {
+            System.out.println("No actors");
+        }
+        //System.out.print("\nVoici le réalisateur de votre film :\n");
+            //System.err.println("Aucun réalisateur choisi");
+            //setDirector(movie);
+        }
 
-            if (movie.getDirector()==null) {
-                System.out.println("Aucun réalisateur pour votre film n'a été choisi pour le moment.\n");
-                setDirector(movie);
-            }
-            if (movie.getActors()==null) {
-                System.out.println("Aucun acteurs pour votre film n'a été choisi pour le moment.");
+        /*
+            if (movie.getActors().size()==0) {
                 setActors(movie);
             }
-
-             System.out.println("1. Changer le réalisateur de votre film?\n" +
-                           "2. Changer les acteurs de votre film" +
-                           "3. Quitter");
-             switch (this.checkNumber()){
-                 case 1:
-                    setDirector(movie);break;
-                 case 2:
-                    setActors(movie);break;
-                case 3:
-                    inPPBuilding=false;break;
-             }
-        }
-    }
+            else {
+                System.out.print("\nVoici les acteurs de votre film :\n");
+                System.out.print(movie.actors);
+            }
+     */
 }
 
 
