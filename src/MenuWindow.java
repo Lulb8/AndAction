@@ -3,12 +3,13 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class MenuWindow extends JFrame implements ActionListener {
+public class MenuWindow extends JFrame {
 
     private JPanel panel = new JPanel();
     private JButton button = new JButton("START");
     private Panel pan = new Panel();
     private JLabel label = new JLabel("And Action !!!");
+    private Clock clock;
 
     private int compteur = 0;
 
@@ -28,7 +29,18 @@ public class MenuWindow extends JFrame implements ActionListener {
         panel.add(pan, BorderLayout.CENTER);
         panel.add(button, BorderLayout.SOUTH);
 
-        button.addActionListener(this);
+        button.setPreferredSize(new Dimension(10, 60));
+        button.addActionListener(new ButtonListener());
+
+
+        //On initialise l'horloge
+        this.clock = new Clock();
+        //On place un écouteur sur l'horloge
+        this.clock.addObservateur(new Observateur(){
+            public void update(String hour) {
+                label.setText(hour);
+            }
+        });
 
         Font police = new Font("Tahoma", Font.BOLD, 30);
         label.setFont(police);
@@ -38,13 +50,12 @@ public class MenuWindow extends JFrame implements ActionListener {
 
         this.setContentPane(panel);
         this.setVisible(true);
+        this.clock.run();
     }
 
-    public void actionPerformed(ActionEvent action) {
-        //Lorsque l'on clique sur le bouton, on met à jour le JLabel
-        this.compteur++;
-        label.setText("Vous avez cliqué " + this.compteur + " fois");
+    class ButtonListener implements ActionListener {
+        public void actionPerformed(ActionEvent action) {
+            label.setText("Vous avez cliqué sur le bouton");
+        }
     }
-
-
 }

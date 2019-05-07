@@ -11,6 +11,8 @@ public class Launch {
     MovieSet movieSet = new MovieSet();
     PostProdBuilding postProd = new PostProdBuilding();
 
+    MenuWindow menuWindow = new MenuWindow();
+
     void initialize(Studio studio, MenuBar menuBar){
         System.out.println("Nom du studio : ");
         String studioName = scanner.nextLine();
