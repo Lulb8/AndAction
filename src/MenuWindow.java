@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 
 public class MenuWindow extends JFrame {
 
@@ -58,13 +59,18 @@ public class MenuWindow extends JFrame {
         JMenuBar menuBar = new JMenuBar();
         //File menu
         JMenu fileMenu = new JMenu("File");
-        JMenuItem openMenuItem = new JMenuItem();
-        fileMenu.add(openMenuItem);
+        fileMenu.setMnemonic(KeyEvent.VK_F);
+        JMenuItem exit = new JMenuItem("Quitter");
+        exit.setMnemonic(KeyEvent.VK_E);
+        exit.setToolTipText("Quitter le jeu");
+        exit.addActionListener((even)-> System.exit(0));
+        fileMenu.add(exit);
         menuBar.add(fileMenu);
         //Clock
         JMenu menuClock = new JMenu();
         JMenuItem clock = new JMenuItem();
         menuClock.add(clock);
+        menuBar.add(Box.createHorizontalGlue()); //Place l'horloge sur la droite de la barre
         menuBar.add(menuClock);
         //On met la barre sur la fenetre
         frame.setJMenuBar(menuBar);
