@@ -35,27 +35,7 @@ public class MenuWindow extends JFrame {
         button.setPreferredSize(new Dimension(10, 60));
         button.addActionListener(new ButtonListener());
 
-
-        //On initialise l'horloge
-        //this.clock = new Clock();
-        //On place un écouteur sur l'horloge
-        /*this.clock.addObservateur(new Observateur(){
-            public void update(String hour) {
-                label.setText(hour);
-            }
-        });*/
-
-        menuBar();
-
-        //On initialise l'horloge
-        this.clock = new Clock();
-        //On place un écouteur sur l'horloge
-        this.clock.addObservateur(new Observateur(){
-            public void update(String hour) {
-                label.setText(hour);
-            }
-        });
-
+        menuBar(); //on affiche la barre de menu
 
         Font police = new Font("Tahoma", Font.BOLD, 30);
         label.setFont(police);
@@ -76,10 +56,26 @@ public class MenuWindow extends JFrame {
 
     public void menuBar(){
         JMenuBar menuBar = new JMenuBar();
+        //File menu
         JMenu fileMenu = new JMenu("File");
         JMenuItem openMenuItem = new JMenuItem();
         fileMenu.add(openMenuItem);
         menuBar.add(fileMenu);
+        //Clock
+        JMenu menuClock = new JMenu();
+        JMenuItem clock = new JMenuItem();
+        menuClock.add(clock);
+        menuBar.add(menuClock);
+        //On met la barre sur la fenetre
         frame.setJMenuBar(menuBar);
+
+        //On initialise l'horloge
+        this.clock = new Clock();
+        //On place un écouteur sur l'horloge
+        this.clock.addObservateur(new Observateur(){
+            public void update(String hour) {
+                menuClock.setText(hour);
+            }
+        });
     }
 }
