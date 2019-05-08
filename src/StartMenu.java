@@ -6,7 +6,6 @@ import java.awt.event.ActionListener;
 public class StartMenu extends Window {
 
     JLabel label = new JLabel("And Action !!!");
-    MenuWindow menuWindow;
 
     public StartMenu(){
         super();
@@ -34,19 +33,19 @@ public class StartMenu extends Window {
         this.label.setHorizontalAlignment(JLabel.CENTER);
         this.panel.add(this.label, BorderLayout.CENTER); //Affiche la phrase
 
-        frame.setContentPane(panel);
+        this.frame.setContentPane(panel);
 
         run();
     }
 
     class ButtonListener implements ActionListener {
         public void actionPerformed(ActionEvent action) {
-            label.setText("Vous avez cliqué sur le bouton");
-            panel.setBackground(Color.RED);
-            //repaint();
+            //label.setText("Vous avez cliqué sur le boffuton");
+            //panel.setBackground(Color.RED);
             frame.dispose();
-            menuWindow = new MenuWindow();
-            //menuWindow.setVisible(true);
+            panel.setVisible(false);
+            MenuWindow menuWindow = new MenuWindow();
+
         }
     }
 }
