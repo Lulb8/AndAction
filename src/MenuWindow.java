@@ -68,8 +68,8 @@ public class MenuWindow extends JFrame {
         menuBar.add(fileMenu);
         //Clock
         JMenu menuClock = new JMenu();
-        JMenuItem clock = new JMenuItem();
-        menuClock.add(clock);
+        //JMenuItem clock = new JMenuItem(); //pour ajouter un sous-menu sous l'horloge
+        //menuClock.add(clock); //pour ajouter un sous-menu sous l'horloge
         menuBar.add(Box.createHorizontalGlue()); //Place l'horloge sur la droite de la barre
         menuBar.add(menuClock);
         //On met la barre sur la fenetre
