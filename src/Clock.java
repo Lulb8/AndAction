@@ -1,13 +1,16 @@
+import observer.Observable;
+import observer.Observer;
+
 import java.util.ArrayList;
 import java.util.Calendar;
 
-public class Clock implements Observable{
+public class Clock implements Observable {
     //On récupère l'instance d'un calendrier
     //Elle va nous permettre de récupérer l'heure actuelle
     private Calendar cal;
     private String hour = "";
     //Notre collection d'observateurs
-    private ArrayList<Observateur> listObservateur = new ArrayList<Observateur>();
+    private ArrayList<Observer> listObserver = new ArrayList<Observer>();
 
     public void run() {
         while(true){
@@ -39,17 +42,17 @@ public class Clock implements Observable{
     }
 
     //Ajoute un observateur à la liste
-    public void addObservateur(Observateur obs) {
-        this.listObservateur.add(obs);
+    public void addObservateur(Observer obs) {
+        this.listObserver.add(obs);
     }
     //Retire tous les observateurs de la liste
     public void delObservateur() {
-        this.listObservateur = new ArrayList<Observateur>();
+        this.listObserver = new ArrayList<Observer>();
     }
     //Avertit les observateurs que l'objet observable a changé
     //et invoque la méthode update() de chaque observateur
     public void updateObservateur() {
-        for(Observateur obs : this.listObservateur )
+        for(Observer obs : this.listObserver)
             obs.update(this.hour);
     }
 }

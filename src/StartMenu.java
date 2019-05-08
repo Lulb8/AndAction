@@ -13,8 +13,12 @@ public class StartMenu extends Window {
     }
 
     public void welcome(){
+        panel = new JPanel();
+        button = new JButton("START");
+        pan = new Panel();
         panel.setLayout(new BorderLayout());
         panel.setBackground(Color.WHITE);
+
         //place le texte au centre de la fenetre
         panel.add(pan, BorderLayout.CENTER); //centre sur l'horizontal
         panel.add(button, BorderLayout.SOUTH);  //place la phrase en bas
@@ -37,6 +41,10 @@ public class StartMenu extends Window {
     class ButtonListener implements ActionListener {
         public void actionPerformed(ActionEvent action) {
             label.setText("Vous avez cliqué sur le bouton");
+            panel.setBackground(Color.RED);
+            repaint();
+            MenuWindow menuWindow = new MenuWindow();
+
         }
     }
 }

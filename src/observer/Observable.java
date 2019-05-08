@@ -1,5 +1,7 @@
+package observer;
+
 public interface Observable {
-    void addObservateur(Observateur obs);
+    void addObservateur(Observer obs);
     void updateObservateur();
     void delObservateur();
 }
