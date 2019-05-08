@@ -5,43 +5,42 @@ import java.awt.event.ActionListener;
 
 public class MenuWindow extends Window {
 
-    /*JLabel labelNameStudio;
-    JLabel labelStudioBudget;
-    JPanel panel;
-    JButton button;
+    JLabel label = new JLabel("Menu");
 
     public MenuWindow(){
-        menu();
+        super();
+        this.menu();
     }
 
     public void menu(){
-        panel = new JPanel();
-        button = new JButton("START");
-        //pan = new Panel();
-        panel.setLayout(new BorderLayout());
-        panel.setBackground(Color.WHITE);
+        this.panel = new JPanel();
+        this.button = new JButton("START");
+        this.pan = new Panel();
+        this.panel.setLayout(new BorderLayout());
+        this.panel.setBackground(Color.RED);
+
         //place le texte au centre de la fenetre
-        panel.add(panel, BorderLayout.CENTER); //centre sur l'horizontal
-        panel.add(button, BorderLayout.SOUTH);  //place la phrase en bas
+        this.panel.add(this.pan, BorderLayout.CENTER); //centre sur l'horizontal
+        this.panel.add(this.button, BorderLayout.SOUTH);  //place la phrase en bas
 
-        button.setPreferredSize(new Dimension(10, 60));
-        button.addActionListener(new ButtonListener());
+        this.button.setPreferredSize(new Dimension(10, 60));
+        this.button.addActionListener(new ButtonListener());
 
 
-        Font police = new Font("Tahoma", Font.BOLD, 20);
-        labelNameStudio.setFont(police);
-        labelNameStudio.setForeground(Color.BLACK);
-        labelNameStudio.setHorizontalAlignment(JLabel.CENTER);
-        panel.add(labelNameStudio, BorderLayout.CENTER); //Affiche la phrase
+        Font police = new Font("Tahoma", Font.BOLD, 30);
+        this.label.setFont(police);
+        this.label.setForeground(Color.BLACK);
+        this.label.setHorizontalAlignment(JLabel.CENTER);
+        this.panel.add(this.label, BorderLayout.CENTER); //Affiche la phrase
 
-        frame.setContentPane(panel);
+        frame.setContentPane(this.panel);
 
         run();
     }
 
     class ButtonListener implements ActionListener {
         public void actionPerformed(ActionEvent action) {
-            labelNameStudio.setText("Vous avez cliqué sur le bouton");
+            label.setText("Vous avez cliqué sur le bouton");
         }
-    }*/
+    }
 }

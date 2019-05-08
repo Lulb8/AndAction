@@ -1,18 +1,17 @@
 import observer.Observer;
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 
 public class Window extends JFrame {
 
-    protected JPanel panel; //= new JPanel();
-    protected JButton button;// = new JButton("START");
-    protected Panel pan;// = new Panel();
-    //protected JLabel label = new JLabel(); //"And Action !!!"
+    protected JPanel panel;
+    protected JButton button;
+    protected Panel pan;
     protected Clock clock;
     protected JFrame frame;
-
-    protected JTabbedPane tab;
 
     /**
      * Constructeur
@@ -41,16 +40,24 @@ public class Window extends JFrame {
         JMenu about = new JMenu("A propos");
         about.setMnemonic(KeyEvent.VK_F);
         JMenuItem team = new JMenuItem("L'équipe");
-        team.setMnemonic(KeyEvent.VK_E);
+        team.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent arg0) {
+                JOptionPane jop = new JOptionPane();
+                jop.showConfirmDialog(null, "L'équipe :\nmachin\ntruc\nbidule", "L'équipe du jeu", JOptionPane.CLOSED_OPTION);
+            }
+        });
         about.add(team);
         JMenuItem help = new JMenuItem("Aide");
         help.setMnemonic(KeyEvent.VK_E);
         about.add(help);
         menuBar.add(about);
-        //Clock
+        //Horloge
         JMenu menuClock = new JMenu();
-        //JMenuItem clock = new JMenuItem(); //pour ajouter un sous-menu sous l'horloge
-        //menuClock.add(clock); //pour ajouter un sous-menu sous l'horloge
+        about.setMnemonic(KeyEvent.VK_F);
+        JMenuItem play = new JMenuItem("Play");
+        menuClock.add(play);
+        JMenuItem pause = new JMenuItem("Pause");
+        menuClock.add(pause);
         menuBar.add(Box.createHorizontalGlue()); //Place l'horloge sur la droite de la barre
         menuBar.add(menuClock);
         //On met la barre sur la fenetre
