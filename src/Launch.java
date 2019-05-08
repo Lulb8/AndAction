@@ -1,3 +1,4 @@
+import java.awt.*;
 import java.util.Scanner;
 
 public class Launch {
@@ -11,9 +12,9 @@ public class Launch {
     MovieSet movieSet = new MovieSet();
     PostProdBuilding postProd = new PostProdBuilding();
 
-    //MenuWindow menuWindow = new MenuWindow();
+    MenuWindow menuWindow = new MenuWindow();
 
-    void initialize(Studio studio, MenuBar menuBar){
+    void initialize(Studio studio){//MenuBar menuBar
         System.out.println("Nom du studio : ");
         String studioName = scanner.nextLine();
         studio.setName(studioName);
@@ -21,8 +22,8 @@ public class Launch {
 
         System.out.println("Budget du studio : ");
         int budgetStudio = checkNumber();
-        menuBar.setBudget(budgetStudio);
-        System.out.println("Le budget du studio est : " + menuBar.getBudget()+ " €");
+        //menuBar.setBudget(budgetStudio);
+        //System.out.println("Le budget du studio est : " + menuBar.getBudget()+ " €");
     }
 
     void loop(){
