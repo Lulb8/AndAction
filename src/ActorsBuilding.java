@@ -36,7 +36,7 @@ public class ActorsBuilding extends BuildingsMenu{
                 break;
 
             case 2://choisir un scénariste
-                System.out.println("Quelle est le scénariste de votre film ?");
+                System.out.println("Quelle est le  de votre film ?");
                 String swName = scanner.next();
                 System.out.println("Le titre de votre nouveau scénariste est " + swName);
 

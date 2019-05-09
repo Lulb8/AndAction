@@ -88,7 +88,12 @@ public class Launch {
                 //System.out.print(currentMovie);
                 break;
             case 3:
-                movieSet.launchMovieSet(); //TODO passer en argument le film en production
+                if (currentMovie==null) {
+                    System.out.print("!! Pas de film commencé !! Rendez-vous dans le bureau des scénaristes!\n");
+                }
+                else {
+                movieSet.launchMovieSet(currentMovie);
+                }
                 break;
             case 4:
                 postProd.launchPostProd(); //TODO passer en argument le film en production
