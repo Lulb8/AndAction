@@ -7,6 +7,6 @@ public class Console {
         int state=-1; //état du film: 0 si le tournage n'a pas commencé, 1 si il est en tournage, 2 s'il est fini
 
         launch.initialize(studio);//, menuBar
-        launch.loop();
+        launch.loop(studio);
     }
 }
