@@ -33,7 +33,7 @@ public class Window extends JFrame {
         JMenuItem exit = new JMenuItem("Quitter");
         exit.setMnemonic(KeyEvent.VK_E);
         exit.setToolTipText("Quitter le jeu");
-        //exit.addActionListener((even)-> System.exit(0));
+        exit.addActionListener((even)-> System.exit(0));
         fileMenu.add(exit);
         menuBar.add(fileMenu);
         //A propos
