@@ -91,7 +91,12 @@ public class Launch {
                 movieSet.launchMovieSet(); //TODO passer en argument le film en production
                 break;
             case 4:
-                postProd.launchPostProd(); //TODO passer en argument le film en production
+                if (currentMovie==null) {
+                    System.out.print("Rendez-vous dans le bureau des scénaristes\n");
+                }
+                else {
+                    postProd.launchPostProd(currentMovie);
+                }
                 break;
             case 5:
                 boolean keepRunningQuit = true;

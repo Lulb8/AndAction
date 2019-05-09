@@ -5,46 +5,34 @@ public class PostProdBuilding extends  BuildingsMenu {
     public ArrayList<Movie> moviesDone;
     private boolean inPPBuilding;
 
-    public void launchPostProd() {
+    public void launchPostProd(Movie currentMovie) {
         System.out.println("Bienvenue au bâtiment de la post-production !");
         inPPBuilding = true;
         while (inPPBuilding) {
             System.out.println("1: Afficher les caractéristiques du film\n" +
                     "2: Choisir un budget pour la publicité du film en cours\n3: Sortir du bâtiment");
             int choice = this.checkNumber();
-            this.selectChoice(choice);
+            this.selectChoice(choice, currentMovie);
         }
     }
 
-    private void selectChoice (int choice) {
+    private void selectChoice (int choice, Movie currentMovie) {
         switch (choice){
             case 1: //afficher caractéristiques du film
-                if (moviesDone == null) {
-                    System.out.println("Aucun film n'a été commencé pour le moment");
-                }
-                else {
-                    Movie lastMovie = moviesDone.get(moviesDone.size() - 1);
-                    lastMovie.toString();
-                }
+                    currentMovie.toString();
                 break;
 
             case 2://choisir un budget de pub
-                if (moviesDone == null) {
-                    System.out.println("Aucun film n'a été commencé pour le moment...\n");
-                }
-                else {
-                    Movie lastMovie = moviesDone.get(moviesDone.size() - 1);
-                    if (lastMovie.state == 1) {
-                        System.out.println("Le tournage de " + lastMovie.getName() + " n'est pas encore fini, revenez "
-                                + "plus tard pour choisir le budget pour la publicité du film");
-                    } else {
-                        System.out.println("Budget pour la publicité de " + lastMovie.getName() + " :");
-                        int budgetStudio = checkNumber();
-                        lastMovie.pubBudget = budgetStudio;
-                        System.out.println("Le budget pour la publicité de " + lastMovie.getName() +
-                                " est défini à " + lastMovie.pubBudget + " €");
-                    }
-                }
+                   if (currentMovie.state == 1) {
+                       System.out.println("Le tournage de " + currentMovie.getName() + " n'est pas encore fini, revenez "
+                               + "plus tard pour choisir le budget pour la publicité du film");
+                   } else {
+                       System.out.println("Budget pour la publicité de " + currentMovie.getName() + " :");
+                       int budgetStudio = checkNumber();
+                       currentMovie.pubBudget = budgetStudio;
+                       System.out.println("Le budget pour la publicité de " + currentMovie.getName() +
+                               " est défini à " + currentMovie.pubBudget + " €");
+                   }
                 break;
             case 3://quitter le bâtiment
                 inPPBuilding = false;
