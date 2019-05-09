@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Studio
 {
     /** Attributes */
@@ -6,6 +8,7 @@ public class Studio
     public int rank;
     public Actors actorsAvailable;
     public int budget;
+    public ArrayList<Movie> moviesDone;
 
     /** Associations */
     private Movie movie;
@@ -69,6 +72,7 @@ public class Studio
         this.actorsAvailable = actorsAvailable;
     }
 
+
     public int getBudget() {
         return budget;
     }
@@ -76,4 +80,16 @@ public class Studio
     public void setBudget(int budget) {
         this.budget = budget;
     }
+
+
+
+    public ArrayList<Movie> getMoviesDone() {
+        return moviesDone;
+    }
+
+    public void setMoviesDone(ArrayList<Movie> moviesDone) {
+        this.moviesDone = moviesDone;
+    }
+
+
 }

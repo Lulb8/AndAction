@@ -4,6 +4,8 @@ public class MovieSet extends  BuildingsMenu {
 
     private boolean inMovieSetBuilding;
     public ArrayList<Movie> movieFilming;
+    int state;
+
 
     public void launchMovieSet(Movie currentMovie) {
         System.out.println("Bienvenue au plateau de tournage !");
@@ -12,25 +14,25 @@ public class MovieSet extends  BuildingsMenu {
             System.out.println("1: Afficher les caractéristiques du film\n"
                     + "2: Sortir du bâtiment");
             int choice = this.checkNumber();
-            this.selectChoice(choice, currentMovie);
+            int status = this.state;
+            this.selectChoice(choice,status, currentMovie);
         }
     }
 
-    private void selectChoice(int choice, Movie currentMovie) {
+    private void selectChoice(int choice,int status, Movie currentMovie) {
         switch (choice) {
             case 1: //afficher caractéristiques du film
                 //Movie currentMovie = movieFilming.get(movieFilming.size() - 1); //TODO Recuperer le film créé dans les autres batiments
                 currentMovie.toString(); //TODO
+                status = currentMovie.getState();
+
                 if (currentMovie == null) {
+                    System.out.println("Le statut du film est :"+status);
                     System.out.println("Aucun film n'a été commencé pour le moment");
                 } else {
-                    System.out.println("Le titre du film est : " + currentMovie.getName()
-                            + "\nSon statut est : " + currentMovie.getState()
-                            + "\nLe genre du film est : " + currentMovie.getGenre()
-                            + "\nLe nombre d'acteurs du film est : " + currentMovie.getNumberOfActors()
-                            + "\nLe réalisateur du film est : " + currentMovie.getDirector()
-                            + "\nL'équipe du film est : " + currentMovie.getTechnicalCrew());
-                }
+                    System.out.println(currentMovie.toString());
+                    }
+
                 break;
 
             case 2: //quitter le bâtiment

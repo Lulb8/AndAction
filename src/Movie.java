@@ -14,13 +14,17 @@ public class Movie
     public Scriptwriter scriptwriter;
     public int numberOfMonths;
     public int boxOffice;
-    public int state; //état du film: 0 si le tournage n'a pas commencé, 1 si il est en tournage, 2 s'il est fini
+    public int state; //état du film: 0 si le tournage n'a pas commencé, 1 si il est en tournage, 2 s'il est fini, 10 quand les acteurs ont été choisis, 11 quand le réalisateur est choisi
     //public time releaseDate;
 
     @Override
     public String toString() {
-        return "Title : " + name + "\nGenre : " + genre + "\nBudget : " + filmBudget +
-                "\nActors : " + "\nDirector : " + director + "\nBox office : " + boxOffice;
+        return "Le titre du film est : " + getName()
+               // + "\nSon statut est : " + getState()
+                + "\nLe genre du film est : " + getGenre()
+                + "\nLe nombre d'acteurs du film est : " + getNumberOfActors()
+                + "\nLe réalisateur du film est : " + getDirector()
+                + "\nL'équipe du film est : " + getTechnicalCrew();
     }
 
     /**
@@ -206,4 +210,13 @@ public class Movie
         this.releaseDate = releaseDate;
     }
     */
+
+    public int getPubBudget() {
+        return pubBudget;
+    }
+
+    public void setPubBudget(int pubBudget) {
+        this.pubBudget = pubBudget;
+    }
+
 }
