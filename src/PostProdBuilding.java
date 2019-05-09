@@ -32,6 +32,9 @@ public class PostProdBuilding extends  BuildingsMenu {
                        currentMovie.pubBudget = budgetStudio;
                        System.out.println("Le budget pour la publicité de " + currentMovie.getName() +
                                " est défini à " + currentMovie.pubBudget + " €");
+                       moviesDone.add(currentMovie);
+                       System.out.println("Votre film est fini ! Félicitations ! \nRetournez au bureau des scénaristes" +
+                               "pour commencer un nouveau film");
                    }
                 break;
             case 3://quitter le bâtiment
