@@ -82,7 +82,6 @@ public class Studio
     }
 
 
-
     public ArrayList<Movie> getMoviesDone() {
         return moviesDone;
     }

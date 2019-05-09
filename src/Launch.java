@@ -13,8 +13,6 @@ public class Launch {
     PostProdBuilding postProd = new PostProdBuilding();
 
     //StartMenu startMenu = new StartMenu();
-    //MenuWindow menuWindow = new MenuWindow();
-
 
     void initialize(Studio studio){//MenuBar menuBar
         System.out.println("Nom du studio : ");
