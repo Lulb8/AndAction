@@ -19,8 +19,12 @@ public class Movie
 
     @Override
     public String toString() {
-        return "Title : " + name + "\nGenre : " + genre + "\nBudget : " + filmBudget +
-                "\nActors : " + "\nDirector : " + director + "\nBox office : " + boxOffice;
+        return "Le titre du film est : " + getName()
+               // + "\nSon statut est : " + getState()
+                + "\nLe genre du film est : " + getGenre()
+                + "\nLe nombre d'acteurs du film est : " + getNumberOfActors()
+                + "\nLe réalisateur du film est : " + getDirector()
+                + "\nL'équipe du film est : " + getTechnicalCrew();
     }
 
     /**

@@ -33,7 +33,7 @@ public class Window extends JFrame {
         JMenuItem exit = new JMenuItem("Quitter");
         exit.setMnemonic(KeyEvent.VK_E);
         exit.setToolTipText("Quitter le jeu");
-        exit.addActionListener((even)-> System.exit(0));
+        //exit.addActionListener((even)-> System.exit(0));
         fileMenu.add(exit);
         menuBar.add(fileMenu);
         //A propos
@@ -68,7 +68,7 @@ public class Window extends JFrame {
         //On place un écouteur sur l'horloge
         this.clock.addObservateur(new Observer(){
             public void update(String hour) {
-                menuClock.setText(hour);
+              //  menuClock.setText(hour);
             }
         });
     }
