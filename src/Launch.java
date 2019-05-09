@@ -24,16 +24,17 @@ public class Launch {
 
         System.out.println("Budget du studio : ");
         int budgetStudio = checkNumber();
+        studio.budget = budgetStudio;
         //menuBar.setBudget(budgetStudio);
         //System.out.println("Le budget du studio est : " + menuBar.getBudget()+ " €");
     }
 
-    void loop(){
+    void loop(Studio studio){
         while (keepRunning){
             System.out.println("Que voulez vous faire?");
             menu();
             int choice = checkNumber();
-            this.launchAction(choice);
+            this.launchAction(choice, studio);
         }
     }
 /*
@@ -72,7 +73,7 @@ public class Launch {
         return number;
     }
 
-    private void launchAction(int choice){
+    private void launchAction(int choice, Studio studio){
         switch (choice){
             case 1:
                 currentMovie=scriptwritersBuilding.launchScriptwriter(); //TODO ajouter le sciptwriter
@@ -96,7 +97,12 @@ public class Launch {
                 }
                 break;
             case 4:
-                postProd.launchPostProd(); //TODO passer en argument le film en production
+                if (currentMovie==null) {
+                    System.out.print("Rendez-vous dans le bureau des scénaristes\n");
+                }
+                else {
+                    postProd.launchPostProd(currentMovie, studio);
+                }
                 break;
             case 5:
                 boolean keepRunningQuit = true;

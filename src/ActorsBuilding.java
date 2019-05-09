@@ -9,12 +9,23 @@ public class ActorsBuilding extends BuildingsMenu{
 
 
     public Movie launchActBuild(Movie currentMovie) {
+        if (currentMovie.getState()==0) {
+            actors.initializeActors();
+        }
         System.out.print("Bienvenue au bureau des acteurs !\n");
         inSwBuilding = true;
         while (inSwBuilding) {
-            System.out.println("1: Choisir des acteurs\n2: Choisir un réalisateur\n3: Sortir du bâtiment");
-            int choice = this.checkNumber();
-            this.selectChoice(choice,currentMovie);
+            if (currentMovie.getState()==0) {
+                System.out.println("1: Choisir des acteurs\n2: Choisir un réalisateur\n3: Sortir du bâtiment");
+                int choice = this.checkNumber();
+                this.selectChoice(choice,currentMovie);
+            }
+            else if (currentMovie.getState()==1) {
+                System.out.print("Votre film est en tournage");
+            }
+            else {
+                System.out.print("Votre film est terminé");
+            }
         }
         return currentMovie;
     }
@@ -22,17 +33,8 @@ public class ActorsBuilding extends BuildingsMenu{
     private void selectChoice (int choice,Movie currentMovie) {
         switch (choice){
             case 1: //choisir les acteurs
-                if (!currentMovie.getName().equals(null)) {
-                    currentMovie.setActors(this.setActors());  }
-                /*
-                }
-                else if (currentMovie.getState()==1) {
-                    System.out.print("Votre film est en tournage");
-                }
-                else {
-                    System.out.print("Rendez-vous au bureau des scénaristes pour créer ton film");
-                }
-                */
+                currentMovie.setActors(this.setActors());
+                currentMovie.setState(10);
                 break;
 
             case 2://choisir un scénariste

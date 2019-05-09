@@ -11,7 +11,7 @@ public class ScriptwritersBuilding extends BuildingsMenu{
         System.out.println("Bienvenue au bâtiment des scénaristes !");
         inSwBuilding = true;
         while (inSwBuilding) {
-            System.out.println("1: Choisir le titre du film\n2: Choisir un scénariste\n3: Sortir du bâtiment");
+            System.out.println("1: Choisir le titre du film\n2: Choisir un scénariste\n3: Choisir un genre\n4: Sortir du bâtiment");
             int choice = this.checkNumber();
             this.selectChoice(choice);
         }
@@ -31,10 +31,19 @@ public class ScriptwritersBuilding extends BuildingsMenu{
             case 2://choisir un scénariste
                 System.out.println("Quelle est le scénariste de votre film ?");
                 String swName = scanner.next();
-                System.out.println("Le titre de votre nouveau scénariste est " + swName);
+                System.out.println("Le nom de votre nouveau scénariste est " + swName);
+                currentMovie.setName(swName);
+                currentMovie.setState(0);
 
                 break;
-            case 3://quitter le bâtiment
+            case 3://choisir un genre
+                System.out.println("Quelle est le genre de votre film ?");
+                String genre = scanner.next();
+                System.out.println("Le genre de votre film est " + genre);
+                currentMovie.setGenre(genre);
+                currentMovie.setState(0);
+                break;
+            case 4://quitter le bâtiment
                 inSwBuilding = false;
                 System.out.println("Vous avez quitté le bâtiment des scénaristes.");
                 break;

@@ -4,8 +4,8 @@ import java.util.List;
 public class Actors{
 
 
-    public ArrayList<Actor> actors = new ArrayList<Actor>();
-    public int nbActors=actors.size(); //nombre d'acteurs
+    private ArrayList<Actor> actors = new ArrayList<Actor>();
+    //public int nbActors=actors.size(); //nombre d'acteurs
 
 
     /**
@@ -55,7 +55,7 @@ public class Actors{
     @Override
     public String toString() {
         String string=new String();
-        for (Actor a : actors) {
+        for (Actor a : this.getActors()) {
             string += a.toString();
         }
         return string;
