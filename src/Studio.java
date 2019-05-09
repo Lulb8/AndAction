@@ -4,6 +4,7 @@ public class Studio
     public String name;
     public String logoPath;
     public int rank;
+    public Actors actorsAvailable;
 
     /** Associations */
     private Movie movie;
@@ -59,6 +60,12 @@ public class Studio
         this.rank = rank;
     }
 
+    public Actors getActorsAvailable() {
+        return actorsAvailable;
+    }
 
+    public void setActorsAvailable(Actors actorsAvailable) {
+        this.actorsAvailable = actorsAvailable;
+    }
 
 }

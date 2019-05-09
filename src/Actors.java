@@ -27,12 +27,25 @@ public class Actors{
         actors.add(newActor);
     }
 
-    public void InitializeActors() {
+    public void removeActor(Actor actor) {
+        actors.remove(actor);
+    }
+
+    /*
+    public void chooseActor(Actor actorChoosen) {
+        if(actors.contains(actorChoosen)) {
+
+            actors.remove(actorChoosen);
+        }
+    }
+    */
+
+    public void initializeActors() {
         Actor a1 = new Actor(), a2 = new Actor(), a3 = new Actor(), a4 = new Actor();
-        a1.createActor("Nom1",1000,"red-haired");
-        a2.createActor("Nom2",500,"blond-haired");
-        a3.createActor("Nom3",1100,"tall");
-        a4.createActor("Nom4",850,"fit and black-haired");
+        a1.createActor("Melanie",1000,"rousse");
+        a2.createActor("Kevin",500,"grand");
+        a3.createActor("Léo",1100,"brun");
+        a4.createActor("Sofia",850,"musclée");
         actors.add(a1);
         actors.add(a2);
         actors.add(a3);
@@ -41,9 +54,11 @@ public class Actors{
 
     @Override
     public String toString() {
-        return "Actors{" +
-                "actors=" + actors +
-                '}';
+        String string=new String();
+        for (Actor a : actors) {
+            string += a.toString();
+        }
+        return string;
     }
 
 
