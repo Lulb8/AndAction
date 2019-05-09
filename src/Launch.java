@@ -80,7 +80,7 @@ public class Launch {
                 break;
             case 2:
                 if (currentMovie==null) {
-                    System.out.print("Rendez-vous dans le bureau des scénaristes\n");
+                    System.out.print("!! Pas de film commencé !! Rendez-vous dans le bureau des scénaristes!\n");
                 }
                 else {
                 actorsBuilding.launchActBuild(currentMovie);
@@ -88,7 +88,12 @@ public class Launch {
                 //System.out.print(currentMovie);
                 break;
             case 3:
-                movieSet.launchMovieSet(); //TODO passer en argument le film en production
+                if (currentMovie==null) {
+                    System.out.print("!! Pas de film commencé !! Rendez-vous dans le bureau des scénaristes!\n");
+                }
+                else {
+                movieSet.launchMovieSet(currentMovie);
+                }
                 break;
             case 4:
                 if (currentMovie==null) {
