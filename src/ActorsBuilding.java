@@ -15,14 +15,9 @@ public class ActorsBuilding extends BuildingsMenu{
         System.out.print("Bienvenue au bureau des acteurs !\n");
         inSwBuilding = true;
         while (inSwBuilding) {
-            if (currentMovie.getState()==0) {
                 System.out.println("1: Choisir des acteurs\n2: Choisir un réalisateur\n3: Sortir du bâtiment");
                 int choice = this.checkNumber();
                 this.selectChoice(choice,currentMovie);
-            }
-            else if (currentMovie.getState()==1) {
-                System.out.print("Votre film est en tournage");
-            }
         }
         return currentMovie;
     }
