@@ -23,9 +23,6 @@ public class ActorsBuilding extends BuildingsMenu{
             else if (currentMovie.getState()==1) {
                 System.out.print("Votre film est en tournage");
             }
-            else {
-                System.out.print("Votre film est terminé");
-            }
         }
         return currentMovie;
     }
