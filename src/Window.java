@@ -19,7 +19,7 @@ public class Window extends JFrame {
     public Window() {
         frame = new JFrame();
         frame.setTitle("And Action !!!");
-        frame.setSize(1100,800);
+        frame.setSize(1496,840); //1870,1050 : taille à l'origine, actuellement le reglage est a 80%
         frame.setLocationRelativeTo(null); //Centre la fenetre
         frame.setResizable(false); //Interdit la redimensionnement de la fenêtre
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
