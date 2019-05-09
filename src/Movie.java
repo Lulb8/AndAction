@@ -9,13 +9,12 @@ public class Movie
     public int pubBudget;
     public int numberOfActors;
     public Actors actors;
-    public Actors actorsAvailable;
     public Director director;
     public TechnicalCrew technicalCrew;
     public Scriptwriter scriptwriter;
     public int numberOfMonths;
     public int boxOffice;
-    public int state; //état du film: 0 si le tournage n'a pas commencé, 1 si il est en tournage, 2 s'il est fini
+    public int state; //état du film: 0 si le tournage n'a pas commencé, 1 si il est en tournage, 2 s'il est fini, 10 quand les acteurs ont été choisis, 11 quand le réalisateur est choisi
     //public time releaseDate;
 
     @Override
@@ -216,11 +215,4 @@ public class Movie
         this.pubBudget = pubBudget;
     }
 
-    public Actors getActorsAvailable() {
-        return actorsAvailable;
-    }
-
-    public void setActorsAvailable(Actors actorsAvailable) {
-        this.actorsAvailable = actorsAvailable;
-    }
 }
