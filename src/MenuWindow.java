@@ -16,7 +16,6 @@ public class MenuWindow extends Window implements DocumentListener {
     JPanel budgetBox = new JPanel();
     JPanel nameBox = new JPanel();
 
-
     private Studio studio;
 
     private JTextField studioName = new JTextField();
@@ -41,7 +40,6 @@ public class MenuWindow extends Window implements DocumentListener {
         this.button.setPreferredSize(new Dimension(10, 60));
         this.button.addActionListener(new ButtonListener());
 
-
         JPanel namePanel = new JPanel();
         Font police = new Font("Tahoma", Font.BOLD, 30);
         this.labelWindow.setFont(police);
@@ -52,7 +50,7 @@ public class MenuWindow extends Window implements DocumentListener {
 
         //Nom du studio
         nameBox = new JPanel();
-        studioName.getDocument().addDocumentListener(this);
+        studioName.getDocument().addDocumentListener(this); //pour savoir si la boite est vide
         Font policeBox = new Font("Arial", Font.BOLD, 14);
         studioName.setFont(policeBox);
         studioName.setPreferredSize(new Dimension(150, 30));
@@ -64,7 +62,7 @@ public class MenuWindow extends Window implements DocumentListener {
 
         //Budget du studio
         budgetBox = new JPanel();
-        studioBudget.getDocument().addDocumentListener(this);
+        studioBudget.getDocument().addDocumentListener(this); //pour savoir si la boite est vide
         studioBudget.setFont(policeBox);
         studioBudget.setPreferredSize(new Dimension(150, 30));
         studioBudget.setForeground(Color.BLUE);
@@ -76,6 +74,20 @@ public class MenuWindow extends Window implements DocumentListener {
         frame.setContentPane(this.panel);
 
         run();
+    }
+
+    class ButtonListener implements ActionListener {
+        public void actionPerformed(ActionEvent action) {
+            labelWindow.setText("Vous avez cliqué sur le bouton");
+            String sName = studioName.getText();
+            String sBudget = studioBudget.getText();
+            int sBudgetInt = Integer.parseInt(sBudget);
+            System.out.println("Nom : " + sName);
+            System.out.println("Budget : " + sBudgetInt);
+            //studio.setName(sName);
+            //studio.setBudget(sBudgetInt);
+
+        }
     }
 
     @Override
@@ -99,17 +111,5 @@ public class MenuWindow extends Window implements DocumentListener {
             filled = false;
         }
         button.setEnabled(filled);
-    }
-
-    class ButtonListener implements ActionListener {
-        public void actionPerformed(ActionEvent action) {
-            labelWindow.setText("Vous avez cliqué sur le bouton");
-            //studio.setName(studioName.getText());
-            //studio.setBudget(Integer.parseInt(studioBudget.getText()));
-
-            System.out.println("Nom : " + studioName.getText());
-            System.out.println("Budget : " + studioBudget.getText());
-
-        }
     }
 }

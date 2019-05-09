@@ -78,4 +78,5 @@ public class Window extends JFrame {
         menuBar(); //on affiche la barre de menu
         this.clock.run();
     }
+
 }
