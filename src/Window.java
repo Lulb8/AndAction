@@ -19,7 +19,7 @@ public class Window extends JFrame {
     public Window() {
         frame = new JFrame();
         frame.setTitle("And Action !!!");
-        frame.setSize(600,500);
+        frame.setSize(1100,800);
         frame.setLocationRelativeTo(null); //Centre la fenetre
         frame.setResizable(false); //Interdit la redimensionnement de la fenêtre
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -68,7 +68,7 @@ public class Window extends JFrame {
         //On place un écouteur sur l'horloge
         this.clock.addObservateur(new Observer(){
             public void update(String hour) {
-              //  menuClock.setText(hour);
+              menuClock.setText(hour);
             }
         });
     }

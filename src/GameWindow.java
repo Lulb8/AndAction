@@ -31,7 +31,9 @@ public class GameWindow extends Window {
         this.label.setFont(police);
         this.label.setForeground(Color.BLACK);
         this.label.setHorizontalAlignment(JLabel.CENTER);
-        this.panel.add(this.label, BorderLayout.CENTER); //Affiche la phrase
+        this.panel.add(new AfficheImage("game_background.png"));
+
+        //this.panel.add(this.label, BorderLayout.CENTER); //Affiche la phrase
 
         this.frame.setContentPane(panel);
 
@@ -41,7 +43,7 @@ public class GameWindow extends Window {
     class ButtonListener implements ActionListener {
         public void actionPerformed(ActionEvent action) {
             label.setText("Vous avez cliqué sur le bouton");
-            frame.setContentPane(new AfficheImage("game_background.png"));
+
         }
     }
 
