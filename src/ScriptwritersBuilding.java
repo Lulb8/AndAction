@@ -32,6 +32,8 @@ public class ScriptwritersBuilding extends BuildingsMenu{
                 System.out.println("Quelle est le scénariste de votre film ?");
                 String swName = scanner.next();
                 System.out.println("Le titre de votre nouveau scénariste est " + swName);
+                currentMovie.setName(swName);
+                currentMovie.setState(0);
 
                 break;
             case 3://quitter le bâtiment
