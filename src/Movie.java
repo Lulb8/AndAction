@@ -9,6 +9,7 @@ public class Movie
     public int pubBudget;
     public int numberOfActors;
     public Actors actors;
+    public Actors actorsAvailable;
     public Director director;
     public TechnicalCrew technicalCrew;
     public Scriptwriter scriptwriter;
@@ -206,4 +207,20 @@ public class Movie
         this.releaseDate = releaseDate;
     }
     */
+
+    public int getPubBudget() {
+        return pubBudget;
+    }
+
+    public void setPubBudget(int pubBudget) {
+        this.pubBudget = pubBudget;
+    }
+
+    public Actors getActorsAvailable() {
+        return actorsAvailable;
+    }
+
+    public void setActorsAvailable(Actors actorsAvailable) {
+        this.actorsAvailable = actorsAvailable;
+    }
 }

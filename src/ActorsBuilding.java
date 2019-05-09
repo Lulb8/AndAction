@@ -12,6 +12,7 @@ public class ActorsBuilding extends BuildingsMenu{
         System.out.print("Bienvenue au bureau des acteurs !\n");
         inSwBuilding = true;
         while (inSwBuilding) {
+            actors.initializeActors();
             System.out.println("1: Choisir des acteurs\n2: Choisir un réalisateur\n3: Sortir du bâtiment");
             int choice = this.checkNumber();
             this.selectChoice(choice,currentMovie);
@@ -22,8 +23,8 @@ public class ActorsBuilding extends BuildingsMenu{
     private void selectChoice (int choice,Movie currentMovie) {
         switch (choice){
             case 1: //choisir les acteurs
-                if (!currentMovie.getName().equals(null)) {
-                    currentMovie.setActors(this.setActors());  }
+                //if (!currentMovie.getName().equals(null)) {
+                    currentMovie.setActors(this.setActors());  // }
                 /*
                 }
                 else if (currentMovie.getState()==1) {
