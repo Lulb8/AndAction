@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class PostProdBuilding extends  BuildingsMenu {
 
-    public ArrayList<Movie> moviesDone;
+    //public ArrayList<Movie> moviesDone;
     private boolean inPPBuilding;
 
     public void launchPostProd(Movie currentMovie, Studio studio) {
@@ -39,7 +39,7 @@ public class PostProdBuilding extends  BuildingsMenu {
                            System.out.println("Le budget pour la publicité de " + currentMovie.getName() +
                                " est défini à " + currentMovie.pubBudget + "€.\nIl vous reste " + studio.budget + "€ dans " +
                                    "votre studio.");
-                           //moviesDone.add(currentMovie);
+                           studio.moviesDone.add(currentMovie);
                            System.out.println("Votre film est fini ! Félicitations ! \nRetournez au bureau des scénaristes" +
                                "pour commencer un nouveau film.");
                          } }
