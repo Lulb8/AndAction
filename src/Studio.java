@@ -5,6 +5,7 @@ public class Studio
     public String logoPath;
     public int rank;
     public Actors actorsAvailable;
+    public int budget;
 
     /** Associations */
     private Movie movie;
@@ -68,4 +69,11 @@ public class Studio
         this.actorsAvailable = actorsAvailable;
     }
 
+    public int getBudget() {
+        return budget;
+    }
+
+    public void setBudget(int budget) {
+        this.budget = budget;
+    }
 }

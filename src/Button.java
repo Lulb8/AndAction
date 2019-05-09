@@ -1,3 +1,6 @@
+import observer.Observable;
+import observer.Observer;
+
 import java.awt.Color;
 import java.awt.GradientPaint;
 import java.awt.Graphics;
@@ -7,12 +10,18 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import javax.imageio.ImageIO;
 import javax.swing.JButton;
 
-public class Button extends JButton implements MouseListener{
+public class Button extends JButton implements MouseListener {
     private String name;
     private Image img;
+
+    //JButton button = new JButton();
+
+    private ArrayList<Observer> listObserver = new ArrayList<Observer>();
+    private Button button;
 
     public Button(String str){
         super(str);
@@ -74,4 +83,5 @@ public class Button extends JButton implements MouseListener{
             }
         }
     }
+
 }

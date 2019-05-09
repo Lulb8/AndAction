@@ -44,7 +44,7 @@ public class StartMenu extends Window {
             //panel.setBackground(Color.RED);
             frame.dispose();
             panel.setVisible(false);
-            MenuWindow menuWindow = new MenuWindow();
+            //MenuWindow menuWindow = new MenuWindow();
 
         }
     }
