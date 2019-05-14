@@ -11,7 +11,9 @@ import java.io.IOException;
 
 public class GameWindow extends Window {
 
-    JLabel label = new JLabel("Jeu");
+    //JLabel label = new JLabel("Jeu");
+    private static int xy = 10;
+
 
     public GameWindow() {
         super();
@@ -20,24 +22,24 @@ public class GameWindow extends Window {
 
     public void game() {
         this.panel = new JPanel();
-        this.button = new JButton("START");
-        this.pan = new Panel();
+        //this.button = new JButton("START");
+        //this.pan = new Panel();
         this.panel.setLayout(new BorderLayout());
         this.panel.setBackground(Color.WHITE);
 
         //place le texte au centre de la fenetre
-        this.panel.add(this.pan, BorderLayout.CENTER); //centre sur l'horizontal
-        this.panel.add(this.button, BorderLayout.SOUTH);  //place la phrase en bas
+        //this.panel.add(this.pan, BorderLayout.CENTER); //centre sur l'horizontal
+        //this.panel.add(this.button, BorderLayout.SOUTH);  //place la phrase en bas
 
-        this.button.setPreferredSize(new Dimension(10, 60));
-        this.button.addActionListener(new ButtonListener());
+        //this.button.setPreferredSize(new Dimension(10, 60));
+        //this.button.addActionListener(new ButtonListener());
 
 
-        Font police = new Font("Tahoma", Font.BOLD, 30);
-        this.label.setFont(police);
-        this.label.setForeground(Color.BLACK);
-        this.label.setHorizontalAlignment(JLabel.CENTER);
-        this.panel.add(new AfficheImage("game_background.png"));
+        //Font police = new Font("Tahoma", Font.BOLD, 30);
+        //this.label.setFont(police);
+        //this.label.setForeground(Color.BLACK);
+        //this.label.setHorizontalAlignment(JLabel.CENTER);
+        //this.panel.add(new AfficheImage("game_background.png"));
 
         //this.panel.add(this.label, BorderLayout.CENTER); //Affiche la phrase
 
@@ -49,18 +51,20 @@ public class GameWindow extends Window {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
         this.frame.setContentPane(new MyCanvas(img));
 
         run();
     }
 
+/*
     class ButtonListener implements ActionListener {
         public void actionPerformed(ActionEvent action) {
             label.setText("Vous avez cliqué sur le bouton");
-
         }
     }
-
+*/
+/*
     class AfficheImage extends JPanel {
         Image eau;
 
@@ -73,23 +77,20 @@ public class GameWindow extends Window {
             g.drawImage(eau, 0, 0, getWidth(), getHeight(), this);
         }
     }
-
+*/
 
 
     private static class MyCanvas extends JComponent implements MouseListener {
-        private static final long    serialVersionUID    = 8845913940083986438L;
-        // position de la première zone de limage que l'on veut (ici elle se trouve au pixel x=450, y=140 et s'étend sur width=450 et height=280)
-        private static final Rectangle    ZONE_IMAGE_1 = new Rectangle(450, 140, 450, 280);
-        // position de la première zone de limage que l'on veut (ici elle se trouve au pixel x=1100, y=140 et s'étend sur width=450 et height=280)
-        private static final Rectangle    ZONE_IMAGE_2 = new Rectangle(1100, 140, 450, 280);
-        // position de la première zone de limage que l'on veut (ici elle se trouve au pixel x=0, y=0 et s'étend sur width=10 et height=10)
-        private static final Rectangle    ZONE_IMAGE_3 = new Rectangle(150, 500, 700, 350);
-        // position de la première zone de limage que l'on veut (ici elle se trouve au pixel x=100, y=100 et s'étend sur width=30 et height=20)
-        private static final Rectangle    ZONE_IMAGE_4 = new Rectangle(1180, 480, 550, 300);
+        // position de la première zone
+        private static final Rectangle AREA_1 = new Rectangle(450, 140, 450, 280);
+        // position de la deuxieme zone
+        private static final Rectangle AREA_2 = new Rectangle(1100, 140, 450, 280);
+        // position de la troisieme zone
+        private static final Rectangle AREA_3 = new Rectangle(150, 500, 700, 350);
+        // position de la quatrieme zone
+        private static final Rectangle AREA_4 = new Rectangle(1180, 480, 550, 300);
         // image à dessiner
         private BufferedImage buff = null;
-
-
 
         public MyCanvas(BufferedImage img) {
             this.addMouseListener(this);
@@ -97,53 +98,48 @@ public class GameWindow extends Window {
         }
 
         public void paintComponent(Graphics g) {
-            // dessine l'image
-            g.drawImage(buff, 0, 0, buff.getWidth(), buff.getHeight(), this);
-            // juste histoire de voir ou se trouvent les zones (plus facil pour le test ^^)
-            g.setColor(Color.GREEN);
-            g.drawRect(ZONE_IMAGE_1.x, ZONE_IMAGE_1.y, ZONE_IMAGE_1.width, ZONE_IMAGE_1.height);
-            g.drawRect(ZONE_IMAGE_2.x, ZONE_IMAGE_2.y, ZONE_IMAGE_2.width, ZONE_IMAGE_2.height);
-            g.drawRect(ZONE_IMAGE_3.x, ZONE_IMAGE_3.y, ZONE_IMAGE_3.width, ZONE_IMAGE_3.height);
-            g.drawRect(ZONE_IMAGE_4.x, ZONE_IMAGE_4.y, ZONE_IMAGE_4.width, ZONE_IMAGE_4.height);
+            g.drawImage(buff, 0, 0, buff.getWidth(), buff.getHeight(), this); // dessine l'image
+            g.setColor(Color.GREEN); //couleur de la zone
+            g.drawRect(AREA_1.x, AREA_1.y, AREA_1.width, AREA_1.height);
+            g.drawRect(AREA_2.x, AREA_2.y, AREA_2.width, AREA_2.height);
+            g.drawRect(AREA_3.x, AREA_3.y, AREA_3.width, AREA_3.height);
+            g.drawRect(AREA_4.x, AREA_4.y, AREA_4.width, AREA_4.height);
         }
 
-        private void testLocation(Point mouse, Rectangle area, String text) {
+        private void testLocation(Point mouse, Rectangle area, String nameBuilding) {
             // test si la souris est dans les data de l'image
-            if(area.contains(mouse))
-                System.out.println(text + " - image");
-            else
-                System.out.println(text + " - !image");
+            if (area.contains(mouse)) {
+                this.add(new MiniFenetre(nameBuilding));
+            } else {
+                System.out.println("La case n'a pas été cliqué.");
+            }
         }
 
         public void mouseClicked(MouseEvent e) {
-            //récupération de la position de la souri
-            Point p = e.getPoint();
-            testLocation(p, ZONE_IMAGE_1, "mouseClicked - data 1");
-            testLocation(p, ZONE_IMAGE_2, "mouseClicked - data 2");
-            testLocation(p, ZONE_IMAGE_3, "mouseClicked - data 3");
-            testLocation(p, ZONE_IMAGE_4, "mouseClicked - data 4");
+            Point p = e.getPoint(); //récupération de la position de la souris
+            testLocation(p, AREA_1, "Bureau des acteurs et réalisateurs");
+            testLocation(p, AREA_2, "Bureau de la post-production");
+            testLocation(p, AREA_3, "Plateau de tournage");
+            testLocation(p, AREA_4, "Bureau des scénaristes");
         }
 
         public void mousePressed(MouseEvent e) {
-            //récupération de la position de la souri
-            Point p = e.getPoint();
-            testLocation(p, ZONE_IMAGE_1, "mousePressed - data 1");
-            testLocation(p, ZONE_IMAGE_2, "mousePressed - data 2");
-            testLocation(p, ZONE_IMAGE_3, "mousePressed - data 3");
-            testLocation(p, ZONE_IMAGE_4, "mousePressed - data 4");
         }
         public void mouseReleased(MouseEvent e) {
-            //récupération de la position de la souri
-            Point p = e.getPoint();
-            testLocation(p, ZONE_IMAGE_1, "mouseReleased - data 1");
-            testLocation(p, ZONE_IMAGE_2, "mouseReleased - data 2");
-            testLocation(p, ZONE_IMAGE_3, "mouseReleased - data 3");
-            testLocation(p, ZONE_IMAGE_4, "mouseReleased - data 4");
         }
-
         public void mouseEntered(MouseEvent e) { }
         public void mouseExited(MouseEvent e) { }
+    }
 
+    static class MiniFenetre extends JInternalFrame {
+        public MiniFenetre(String nameBuilding) {
+            this.setTitle("Fenetre N°" + nameBuilding);
+            this.setClosable(true);
+            this.setResizable(true);
+            this.setSize(150, 80);
+            this.setLocation(xy, xy);
+            this.setVisible(true);
+        }
     }
 }
 
