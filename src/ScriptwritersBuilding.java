@@ -37,14 +37,14 @@ public class ScriptwritersBuilding extends BuildingsMenu{
 
                 break;
             case 3://choisir un genre
-                currentMovie.setGenres(this.setGenres());
-                currentMovie.setState(0);
-                /*System.out.println("Quelle est le genre de votre film ?");
+                //currentMovie.setGenres(this.setGenres());
+                //currentMovie.setState(0);
+                System.out.println("Quelle est le genre de votre film ?");
                 String genre = scanner.next();
                 System.out.println("Le genre de votre film est " + genre);
                 currentMovie.setGenre(genre);
                 currentMovie.setState(0);
-                break;*/
+                break;
             case 4://quitter le bâtiment
                 inSwBuilding = false;
                 System.out.println("Vous avez quitté le bâtiment des scénaristes.");
@@ -54,7 +54,7 @@ public class ScriptwritersBuilding extends BuildingsMenu{
                     break;
         }
 
-        private Actors setActors(){
+  /*      private Actors setActors(){
             //int nbActors = movie.actors.size();
             //int it = 0;
             boolean inLoop = true;
@@ -73,8 +73,8 @@ public class ScriptwritersBuilding extends BuildingsMenu{
                 actors.removeActor(actorChosen);
                 System.out.println("Voulez-vous ajouter un nouvel acteur (o/n)");
                 inLoop = scanner.next().equals("o");
-            } while (/*it<nbActors &&*/ inLoop);
-            return actorsChosen;
+          //  } while (/*it<nbActors &&*/ //inLoop);
+           // return actorsChosen;
         }
     }
 
@@ -92,4 +92,4 @@ public class ScriptwritersBuilding extends BuildingsMenu{
         return scriptwriters;
     }
 */
-}
+
