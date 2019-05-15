@@ -68,6 +68,9 @@ public class GameWindow extends Window {
                     case 1:
                         this.add(new ActorsBuildingWindow());
                         break;
+                    case 2:
+                        this.add(new PostProdBuildingWindow());
+                        break;
                     case 4:
                         this.add(new ScriptwritersBuildingWindow());
                         break;
