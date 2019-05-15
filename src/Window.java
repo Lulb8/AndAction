@@ -19,7 +19,7 @@ public class Window extends JFrame {
     public Window() {
         frame = new JFrame();
         frame.setTitle("And Action !!!");
-        frame.setSize(1100,800);
+        frame.setSize(1870,1050); //1870,1050 : taille à l'origine, actuellement le reglage est a 80%  1496,840
         frame.setLocationRelativeTo(null); //Centre la fenetre
         frame.setResizable(false); //Interdit la redimensionnement de la fenêtre
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -33,7 +33,7 @@ public class Window extends JFrame {
         JMenuItem exit = new JMenuItem("Quitter");
         exit.setMnemonic(KeyEvent.VK_E);
         exit.setToolTipText("Quitter le jeu");
-        //exit.addActionListener((even)-> System.exit(0));
+        exit.addActionListener((even)-> System.exit(0));
         fileMenu.add(exit);
         menuBar.add(fileMenu);
         //A propos
