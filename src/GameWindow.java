@@ -9,7 +9,6 @@ import java.io.IOException;
 
 public class GameWindow extends Window {
 
-    //JLabel label = new JLabel("Jeu");
     private static int xy = 10;
 
 
@@ -70,6 +69,9 @@ public class GameWindow extends Window {
                         break;
                     case 2:
                         this.add(new PostProdBuildingWindow());
+                        break;
+                    case 3:
+                        this.add(new MovieSetWindow());
                         break;
                     case 4:
                         this.add(new ScriptwritersBuildingWindow());
