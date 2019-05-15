@@ -9,7 +9,6 @@ public class ActorsBuildingWindow extends JInternalFrame {
 
     protected JInternalFrame internalFrame;
     private JPanel container = new JPanel();
-    //private JLayeredPane layeredPane;  //pour choisir l'emplacement et le taille des JPanel
 
     private static int x = 320;
     private static int y = 100;
@@ -28,6 +27,7 @@ public class ActorsBuildingWindow extends JInternalFrame {
         //container.setBackground(Color.white);
         container.setLayout(new BorderLayout());
         Font police = new Font("Arial", Font.BOLD, 14);
+        Font policeTitle = new Font("Arial", Font.BOLD, 22);
 
         //Titre du film
         JPanel panelTitle = new JPanel();
@@ -35,7 +35,7 @@ public class ActorsBuildingWindow extends JInternalFrame {
         Dimension panelTitleSize = new Dimension(500, 200);
         panelTitle.setPreferredSize(panelTitleSize);
         JLabel labelTitle = new JLabel("Le titre de votre film : "); //recuperer le titre du film en cours
-        labelTitle.setFont(police);
+        labelTitle.setFont(policeTitle);
         panelTitle.add(labelTitle);
         container.add(panelTitle, BorderLayout.NORTH);
 
@@ -104,15 +104,9 @@ public class ActorsBuildingWindow extends JInternalFrame {
         JButton button = new JButton("Valider le casting !");
         Dimension buttonSize = new Dimension(500, 100);
         button.setPreferredSize(buttonSize);
+        button.setFont(policeTitle);
         panelButton.add(button);
         container.add(panelButton, BorderLayout.SOUTH);
-
-
-
-
-
-
-
 
 
         this.setContentPane(container);

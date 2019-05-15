@@ -29,6 +29,7 @@ public class ScriptwritersBuildingWindow extends JInternalFrame {
         //container.setBackground(Color.white);
         container.setLayout(new BorderLayout());
         Font police = new Font("Arial", Font.BOLD, 14);
+        Font policeTitle = new Font("Arial", Font.BOLD, 22);
 
         //Titre du film
         JPanel panelTitle = new JPanel();
@@ -89,6 +90,7 @@ public class ScriptwritersBuildingWindow extends JInternalFrame {
         JButton button = new JButton("Valider le scénario !");
         Dimension buttonSize = new Dimension(500, 100);
         button.setPreferredSize(buttonSize);
+        button.setFont(policeTitle);
         panelButton.add(button);
         container.add(panelButton, BorderLayout.SOUTH);
 
