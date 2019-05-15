@@ -1,8 +1,6 @@
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
@@ -109,9 +107,10 @@ public class GameWindow extends Window {
         private void testLocation(Point mouse, Rectangle area, String nameBuilding) {
             // test si la souris est dans les data de l'image
             if (area.contains(mouse)) {
-                this.add(new MiniFenetre(nameBuilding));
+                this.add(new ScriptwritersBuildingWindow());
+                //this.add(new MiniFenetre(nameBuilding));
             } else {
-                System.out.println("La case n'a pas été cliqué.");
+                System.out.println("La case " + nameBuilding + " n'a pas été cliqué.");
             }
         }
 
@@ -131,6 +130,7 @@ public class GameWindow extends Window {
         public void mouseExited(MouseEvent e) { }
     }
 
+    /*
     static class MiniFenetre extends JInternalFrame {
         public MiniFenetre(String nameBuilding) {
             this.setTitle("Fenetre N°" + nameBuilding);
@@ -140,6 +140,6 @@ public class GameWindow extends Window {
             this.setLocation(xy, xy);
             this.setVisible(true);
         }
-    }
+    }*/
 }
 
