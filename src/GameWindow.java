@@ -62,11 +62,19 @@ public class GameWindow extends Window {
             g.drawRect(AREA_4.x, AREA_4.y, AREA_4.width, AREA_4.height);
         }
 
-        private void testLocation(Point mouse, Rectangle area, String nameBuilding) {
-            // test si la souris est dans les data de l'image
+        private void testLocation(Point mouse, Rectangle area, String nameBuilding, int numBuilding) {
             if (area.contains(mouse)) {
-                this.add(new ScriptwritersBuildingWindow());
-                //this.add(new ActorsBuildingWindow());
+                switch (numBuilding) {
+                    case 1:
+                        this.add(new ActorsBuildingWindow());
+                        break;
+                    case 4:
+                        this.add(new ScriptwritersBuildingWindow());
+                        break;
+                    default:
+                        System.out.println("Ce batiment n'existe pas !!!");
+                        break;
+                }
             } else {
                 System.out.println("La case " + nameBuilding + " n'a pas été cliqué.");
             }
@@ -74,10 +82,10 @@ public class GameWindow extends Window {
 
         public void mouseClicked(MouseEvent e) {
             Point p = e.getPoint(); //récupération de la position de la souris
-            testLocation(p, AREA_1, "Bureau des acteurs et réalisateurs");
-            testLocation(p, AREA_2, "Bureau de la post-production");
-            testLocation(p, AREA_3, "Plateau de tournage");
-            testLocation(p, AREA_4, "Bureau des scénaristes");
+            testLocation(p, AREA_1, "Bureau des acteurs et réalisateurs", 1);
+            testLocation(p, AREA_2, "Bureau de la post-production", 2);
+            testLocation(p, AREA_3, "Plateau de tournage", 3);
+            testLocation(p, AREA_4, "Bureau des scénaristes", 4);
         }
 
         public void mousePressed(MouseEvent e) {
