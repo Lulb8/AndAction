@@ -82,7 +82,7 @@ public class ScriptwritersBuildingWindow extends JInternalFrame {
         panelLogo.add(logo);
         container.add(panelLogo, BorderLayout.CENTER);
 
-        //Logo du building
+        //Bouton pour valider
         JPanel panelButton = new JPanel();
         panelButton.setBackground(Color.WHITE);
         panelButton.setSize(200, 100);
