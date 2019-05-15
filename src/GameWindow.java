@@ -20,28 +20,8 @@ public class GameWindow extends Window {
 
     public void game() {
         this.panel = new JPanel();
-        //this.button = new JButton("START");
-        //this.pan = new Panel();
         this.panel.setLayout(new BorderLayout());
         this.panel.setBackground(Color.WHITE);
-
-        //place le texte au centre de la fenetre
-        //this.panel.add(this.pan, BorderLayout.CENTER); //centre sur l'horizontal
-        //this.panel.add(this.button, BorderLayout.SOUTH);  //place la phrase en bas
-
-        //this.button.setPreferredSize(new Dimension(10, 60));
-        //this.button.addActionListener(new ButtonListener());
-
-
-        //Font police = new Font("Tahoma", Font.BOLD, 30);
-        //this.label.setFont(police);
-        //this.label.setForeground(Color.BLACK);
-        //this.label.setHorizontalAlignment(JLabel.CENTER);
-        //this.panel.add(new AfficheImage("game_background.png"));
-
-        //this.panel.add(this.label, BorderLayout.CENTER); //Affiche la phrase
-
-        //this.frame.setContentPane(panel);
 
         BufferedImage img = null;
         try {
@@ -54,28 +34,6 @@ public class GameWindow extends Window {
 
         run();
     }
-
-/*
-    class ButtonListener implements ActionListener {
-        public void actionPerformed(ActionEvent action) {
-            label.setText("Vous avez cliqué sur le bouton");
-        }
-    }
-*/
-/*
-    class AfficheImage extends JPanel {
-        Image eau;
-
-        AfficheImage(String s) {
-            eau = getToolkit().getImage(s);
-        }
-
-        public void paintComponent(Graphics g) {
-            super.paintComponent(g);
-            g.drawImage(eau, 0, 0, getWidth(), getHeight(), this);
-        }
-    }
-*/
 
 
     private static class MyCanvas extends JComponent implements MouseListener {
@@ -108,7 +66,7 @@ public class GameWindow extends Window {
             // test si la souris est dans les data de l'image
             if (area.contains(mouse)) {
                 this.add(new ScriptwritersBuildingWindow());
-                //this.add(new MiniFenetre(nameBuilding));
+                //this.add(new ActorsBuildingWindow());
             } else {
                 System.out.println("La case " + nameBuilding + " n'a pas été cliqué.");
             }
@@ -129,17 +87,5 @@ public class GameWindow extends Window {
         public void mouseEntered(MouseEvent e) { }
         public void mouseExited(MouseEvent e) { }
     }
-
-    /*
-    static class MiniFenetre extends JInternalFrame {
-        public MiniFenetre(String nameBuilding) {
-            this.setTitle("Fenetre N°" + nameBuilding);
-            this.setClosable(true);
-            this.setResizable(true);
-            this.setSize(150, 80);
-            this.setLocation(xy, xy);
-            this.setVisible(true);
-        }
-    }*/
 }
 
