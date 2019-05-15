@@ -18,13 +18,13 @@ public class ActorsBuildingWindow extends JInternalFrame {
      */
     public ActorsBuildingWindow() {
         internalFrame = new JInternalFrame();
-        this.setTitle("Fenêtre du bureau des acteurs et réalisateurs");
+        this.setTitle("Bureau des acteurs et réalisateurs");
         this.setSize(1200, 800);
         this.setResizable(false); //Interdit la redimensionnement de la fenêtre
         this.setClosable(true);
         this.setLocation(x, y);
 
-        //container.setBackground(Color.white);
+        container.setBackground(Color.white);
         container.setLayout(new BorderLayout());
         Font police = new Font("Arial", Font.BOLD, 14);
         Font policeTitle = new Font("Arial", Font.BOLD, 22);
@@ -112,7 +112,6 @@ public class ActorsBuildingWindow extends JInternalFrame {
         this.setContentPane(container);
         this.setVisible(true);
     }
-
 
 
     class ItemState implements ItemListener {

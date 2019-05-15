@@ -10,7 +10,6 @@ public class ScriptwritersBuildingWindow extends JInternalFrame {
     protected JInternalFrame internalFrame;
     private JTextField jTextField = new JTextField();
     private JPanel container = new JPanel();
-    //private JLayeredPane layeredPane;  //pour choisir l'emplacement et le taille des JPanel
 
     private static int x = 320;
     private static int y = 100;
@@ -20,13 +19,13 @@ public class ScriptwritersBuildingWindow extends JInternalFrame {
      */
     public ScriptwritersBuildingWindow() {
         internalFrame = new JInternalFrame();
-        this.setTitle("Fenêtre du bureau des scénaristes");
+        this.setTitle("Bureau des scénaristes");
         this.setSize(1200, 800);
         this.setResizable(false); //Interdit la redimensionnement de la fenêtre
         this.setClosable(true);
         this.setLocation(x, y);
 
-        //container.setBackground(Color.white);
+        container.setBackground(Color.white);
         container.setLayout(new BorderLayout());
         Font police = new Font("Arial", Font.BOLD, 14);
         Font policeTitle = new Font("Arial", Font.BOLD, 22);
@@ -95,17 +94,9 @@ public class ScriptwritersBuildingWindow extends JInternalFrame {
         container.add(panelButton, BorderLayout.SOUTH);
 
 
-
-
-
-
-
-
-
         this.setContentPane(container);
         this.setVisible(true);
     }
-
 
 
     class ItemState implements ItemListener {
