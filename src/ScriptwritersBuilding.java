@@ -37,12 +37,14 @@ public class ScriptwritersBuilding extends BuildingsMenu{
 
                 break;
             case 3://choisir un genre
-                System.out.println("Quelle est le genre de votre film ?");
+                currentMovie.setGenres(this.setGenres());
+                currentMovie.setState(0);
+                /*System.out.println("Quelle est le genre de votre film ?");
                 String genre = scanner.next();
                 System.out.println("Le genre de votre film est " + genre);
                 currentMovie.setGenre(genre);
                 currentMovie.setState(0);
-                break;
+                break;*/
             case 4://quitter le bâtiment
                 inSwBuilding = false;
                 System.out.println("Vous avez quitté le bâtiment des scénaristes.");
@@ -50,6 +52,29 @@ public class ScriptwritersBuilding extends BuildingsMenu{
             default:
                     System.out.println("Veuillez entrer un caractère valable !");
                     break;
+        }
+
+        private Actors setActors(){
+            //int nbActors = movie.actors.size();
+            //int it = 0;
+            boolean inLoop = true;
+            do {
+                System.out.print(actors.toString()+"    Choisis un acteur en tapant son nom.\n");
+                String name = scanner.next();
+                Actor actorChosen = new Actor();
+                for (Actor a : actors.getActors()) {
+                    if (a.getName().equals(name)) {
+                        System.out.print("Vous avez choisi " + a.getName()+" comme acteur(e)\n");
+                        actorsChosen.addActor(a);
+                        //it+=1;
+                        actorChosen=a;
+                    }
+                }
+                actors.removeActor(actorChosen);
+                System.out.println("Voulez-vous ajouter un nouvel acteur (o/n)");
+                inLoop = scanner.next().equals("o");
+            } while (/*it<nbActors &&*/ inLoop);
+            return actorsChosen;
         }
     }
 
