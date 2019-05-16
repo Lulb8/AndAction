@@ -63,6 +63,7 @@ public class GameWindow extends Window {
 
         private void testLocation(Point mouse, Rectangle area, String nameBuilding, int numBuilding) {
             if (area.contains(mouse)) {
+                this.removeAll();
                 switch (numBuilding) {
                     case 1:
                         this.add(new ActorsBuildingWindow());
