@@ -29,13 +29,15 @@ public class ScriptwritersBuilding extends BuildingsMenu{
                 break;
 
             case 2://choisir un scénariste
+                Scriptwriter scriptwriter = new Scriptwriter();
                 System.out.println("Quelle est le scénariste de votre film ?");
                 String swName = scanner.next();
                 System.out.println("Le nom de votre nouveau scénariste est " + swName);
-                currentMovie.setName(swName);
+                scriptwriter.setName(swName);
+                currentMovie.setScriptwriter(scriptwriter);
                 currentMovie.setState(0);
-
                 break;
+
             case 3://choisir un genre
                 //currentMovie.setGenres(this.setGenres());
                 //currentMovie.setState(0);
@@ -45,10 +47,12 @@ public class ScriptwritersBuilding extends BuildingsMenu{
                 currentMovie.setGenre(genre);
                 currentMovie.setState(0);
                 break;
+
             case 4://quitter le bâtiment
                 inSwBuilding = false;
                 System.out.println("Vous avez quitté le bâtiment des scénaristes.");
                 break;
+
             default:
                     System.out.println("Veuillez entrer un caractère valable !");
                     break;
