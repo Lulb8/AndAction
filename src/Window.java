@@ -43,7 +43,7 @@ public class Window extends JFrame {
         team.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent arg0) {
                 JOptionPane jop = new JOptionPane();
-                jop.showConfirmDialog(null, "L'équipe :\nmachin\ntruc\nbidule", "L'équipe du jeu", JOptionPane.CLOSED_OPTION);
+                jop.showConfirmDialog(null, "L'équipe :\nSarah\nLucie\nEmma\nEmmy\nJessica", "L'équipe du jeu", JOptionPane.CLOSED_OPTION);
             }
         });
         about.add(team);
