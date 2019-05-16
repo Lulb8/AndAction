@@ -82,33 +82,14 @@ public class ActorsBuilding extends BuildingsMenu{
 
     public ArrayList<Director> directorsAvailable(ArrayList<Director> directors) {
         Director d1 = new Director(), d2 = new Director(), d3 = new Director();
-        d1.createDirector("Nom1",1000);
-        d2.createDirector("Nom2",500);
-        d3.createDirector("Nom3",1100);
+        d1.createDirector("Mr.X",1000);
+        d2.createDirector("Mr.Y",500);
+        d3.createDirector("Mr.Z",1100);
         directors.add(d1);
         directors.add(d2);
         directors.add(d3);
         return directors;
     }
-
-        /*
-            if (movie.getActors().size()==0) {
-                setActors(movie);
-            }
-            else {
-                System.out.print("\nVoici les acteurs de votre film :\n");
-                System.out.print(movie.actors);
-            }
-     */
-
-/*
-        if (movie.getDirector()==null) {
-                System.out.println("Aucun réalisateur pour votre film n'a été choisi pour le moment.");
-                setDirector(movie);
-                }
-                if (movie.getActors()==null) {
-                System.out.println("No actors");
-                */
 }
 
 

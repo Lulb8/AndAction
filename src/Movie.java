@@ -23,7 +23,7 @@ public class Movie
                // + "\nSon statut est : " + getState()
                 + "\nLe genre du film est : " + getGenre()
                 + "\nLe nombre d'acteurs du film est : " + getNumberOfActors()
-                + "\nLe réalisateur du film est : " + getDirector()
+                + "\nLe réalisateur du film est : " + director.getName()
                 + "\nL'équipe du film est : " + getTechnicalCrew();
     }
 

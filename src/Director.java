@@ -10,9 +10,20 @@ public class Director extends People{
         setSalary(salary);
         return this;
     }
-
-    public String toString() {
-        return this.getName()
-                +" a pour salaire : "+this.getSalary()+"\n";
+    public String getName() {
+        return this.name;
     }
+
+    @Override
+    public String toString() {
+        return "Director{" +
+                "name='" + name + '\'' +
+                ", salary=" + salary +
+                ", picturePath='" + picturePath + '\'' +
+                ", specializedGenres=" + specializedGenres +
+                ", profession='" + profession + '\'' +
+                ", experience='" + experience + '\'' +
+                '}';
+    }
+
 }

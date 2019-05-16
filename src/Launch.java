@@ -84,7 +84,6 @@ public class Launch {
                 else {
                 actorsBuilding.launchActBuild(currentMovie);
                 }
-                //System.out.print(currentMovie);
                 break;
             case 3:
                 if (currentMovie==null) {
