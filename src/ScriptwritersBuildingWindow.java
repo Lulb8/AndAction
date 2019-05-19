@@ -10,14 +10,19 @@ public class ScriptwritersBuildingWindow extends JInternalFrame {
     protected JInternalFrame internalFrame;
     private JTextField jTextField = new JTextField();
     private JPanel container = new JPanel();
+    private JComboBox comboGenre;
+    private JComboBox comboSw;
 
     private static int x = 320;
     private static int y = 100;
 
+    private Movie currentMovie;
+
     /**
      * Constructeur
      */
-    public ScriptwritersBuildingWindow() {
+    public ScriptwritersBuildingWindow(Studio studio) {
+        currentMovie = new Movie();
         internalFrame = new JInternalFrame();
         this.setTitle("Bureau des scénaristes");
         this.setSize(1200, 800);
@@ -50,7 +55,7 @@ public class ScriptwritersBuildingWindow extends JInternalFrame {
         JLabel labelSw = new JLabel("Le scénariste de votre film : ");
         labelSw.setFont(police);
         String[] sw = {"Machin", "Truc", "Bidule", "Chouette"};
-        JComboBox comboSw = new JComboBox(sw);
+        comboSw = new JComboBox(sw);
         comboSw.addItemListener(new ItemState());
         comboSw.addActionListener(new ItemAction(comboSw));
         comboSw.setPreferredSize(new Dimension(100, 20));
@@ -66,7 +71,7 @@ public class ScriptwritersBuildingWindow extends JInternalFrame {
         JLabel labelGenre = new JLabel("Le genre de votre film : ");
         labelGenre.setFont(police);
         String[] genre = {"Action", "Drame", "Horreur", "SF"};
-        JComboBox comboGenre = new JComboBox(genre);
+        comboGenre = new JComboBox(genre);
         comboGenre.addItemListener(new ItemState());
         comboGenre.addActionListener(new ItemAction(comboGenre));
         comboGenre.setPreferredSize(new Dimension(100, 20));
@@ -88,6 +93,7 @@ public class ScriptwritersBuildingWindow extends JInternalFrame {
         panelButton.setSize(200, 100);
         JButton button = new JButton("Valider le scénario !");
         Dimension buttonSize = new Dimension(500, 100);
+        button.addActionListener(new ButtonListener());
         button.setPreferredSize(buttonSize);
         button.setFont(policeTitle);
         panelButton.add(button);
@@ -115,4 +121,17 @@ public class ScriptwritersBuildingWindow extends JInternalFrame {
             System.out.println("ComboBox action sur " + combo.getSelectedItem());
         }
     }
+
+    class ButtonListener implements ActionListener {
+        public void actionPerformed(ActionEvent action) {
+            Scriptwriter scriptwriter = new Scriptwriter();
+            scriptwriter.setName(String.valueOf(comboSw.getSelectedItem()));
+            currentMovie.setName(jTextField.getText());
+            currentMovie.setGenre(String.valueOf(comboGenre.getSelectedItem()));
+            currentMovie.setScriptwriter(scriptwriter);
+            //System.out.println(currentMovie.getName() + " " + currentMovie.getGenre() + " " + currentMovie.getScriptwriter()); //affichage console
+        }
+    }
+
+
 }
