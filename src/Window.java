@@ -30,24 +30,6 @@ public class Window extends JFrame {
         //Menu
         JMenu menu = new JMenu("Menu");
         menu.setMnemonic(KeyEvent.VK_F);
-        //Mon studio
-        JMenuItem myStudio = new JMenuItem("Mon Studio");
-        myStudio.setMnemonic(KeyEvent.VK_E);
-        final String[] studioName = {null};
-        final String[] studioBudget = {null};
-        myStudio.addActionListener(new ActionListener(){
-            public void actionPerformed(ActionEvent arg0) {
-                JOptionPane jop, jop2;
-                jop2 = new JOptionPane();
-                if (studioName[0] == null && studioBudget[0] == null) {
-                    jop = new JOptionPane();
-                    studioName[0] = jop.showInputDialog(null, "Quel est le nom de votre studio ?", "Mon studio - Nom du studio", JOptionPane.QUESTION_MESSAGE);
-                    studioBudget[0] = jop.showInputDialog(null, "Quel est le budget de votre studio ?", "Mon studio - Budget du studio", JOptionPane.QUESTION_MESSAGE);
-                }
-                jop2.showMessageDialog(null, "Le nom de votre studio est " + studioName[0] + " et le budget est le " + studioBudget[0] + "€.", "Mon studio", JOptionPane.INFORMATION_MESSAGE);
-            }
-        });
-        menu.add(myStudio);
         //Quitter
         JMenuItem exit = new JMenuItem("Quitter");
         exit.setMnemonic(KeyEvent.VK_E);
@@ -73,7 +55,7 @@ public class Window extends JFrame {
             public void actionPerformed(ActionEvent arg0) {
                 JOptionPane jop = new JOptionPane();
                 jop.showConfirmDialog(null, "Bienvenue dans le jeu \"And Action !!!\"\n Dans ce jeu vous allez pouvoir diriger votre propre studio de cinéma.\n"
-                        + "Pour commencer à jouer, vous devez choisir le nom et le budget de votre studio en cliquant sur le bouton Menu>Mon Studio présent dans labarre supérieure.\n"
+                        + "Pour commencer à jouer, vous devez choisir le nom et le budget de votre studio en cliquant sur le chateau d'eau présent sur la carte.\n"
                         + "Une fois ceci fait, il est maintenant temps de créer votre premier film en cliquant sur le bureau des scénaristes.\n"
                         + "Il vous sera possible de choisir le titre, le genre et le scénariste de votre film. Maintenant, il faut un acteur, un réalisateur et une équipe technique pour tourner votre chef d'oeuvre.\n"
                         + "C'est bon, le scénario est prêt, l'acteur a répété son texte et le réalisateur s'apprête à dire \"And Action !!!\", ça veut maintenant dire qu'il est temps de se diriger vers le plateau de tournage.\n"
