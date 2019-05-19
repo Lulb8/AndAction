@@ -9,9 +9,6 @@ import java.io.IOException;
 
 public class GameWindow extends Window {
 
-    //private static String studioName = null;
-    //private static String studioBudget = null;
-
     public GameWindow(Studio studio) {
         super();
         game();
@@ -34,7 +31,6 @@ public class GameWindow extends Window {
         run();
     }
 
-
     private static class MyCanvas extends JComponent implements MouseListener {
         // position de la première zone
         private static final Rectangle AREA_1 = new Rectangle(450, 140, 450, 280);
@@ -50,6 +46,7 @@ public class GameWindow extends Window {
         private BufferedImage buff = null;
 
         Studio studio;
+        private Movie currentMovie;
 
         public MyCanvas(BufferedImage img) {
             this.addMouseListener(this);
@@ -60,7 +57,7 @@ public class GameWindow extends Window {
             g.drawImage(buff, 0, 0, buff.getWidth(), buff.getHeight(), this); // dessine l'image
             int alpha = 0; // 100% transparent
             Color transparent = new Color(255, 255, 255, alpha);
-            g.setColor(Color.blue); //couleur du cadre
+            g.setColor(transparent); //couleur du cadre
             g.drawRect(AREA_1.x, AREA_1.y, AREA_1.width, AREA_1.height);
             g.drawRect(AREA_2.x, AREA_2.y, AREA_2.width, AREA_2.height);
             g.drawRect(AREA_3.x, AREA_3.y, AREA_3.width, AREA_3.height);
@@ -73,7 +70,7 @@ public class GameWindow extends Window {
                 this.removeAll();
                 switch (numBuilding) {
                     case 1:
-                        this.add(new ActorsBuildingWindow());
+                        this.add(new ActorsBuildingWindow(currentMovie));
                         break;
                     case 2:
                         this.add(new PostProdBuildingWindow());
