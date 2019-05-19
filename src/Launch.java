@@ -12,9 +12,7 @@ public class Launch {
     MovieSet movieSet = new MovieSet();
     PostProdBuilding postProd = new PostProdBuilding();
 
-    //StartMenu startMenu = new StartMenu();
-
-    void initialize(Studio studio){//MenuBar menuBar
+    void initialize(Studio studio){
         System.out.println("Nom du studio : ");
         String studioName = scanner.nextLine();
         studio.setName(studioName);
@@ -23,8 +21,6 @@ public class Launch {
         System.out.println("Budget du studio : ");
         int budgetStudio = checkNumber();
         studio.budget = budgetStudio;
-        //menuBar.setBudget(budgetStudio);
-        //System.out.println("Le budget du studio est : " + menuBar.getBudget()+ " €");
     }
 
     void loop(Studio studio){
