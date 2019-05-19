@@ -33,12 +33,18 @@ public class Window extends JFrame {
         //Mon studio
         JMenuItem myStudio = new JMenuItem("Mon Studio");
         myStudio.setMnemonic(KeyEvent.VK_E);
+        final String[] studioName = {null};
+        final String[] studioBudget = {null};
         myStudio.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent arg0) {
-                JOptionPane jop = new JOptionPane(), jop2 = new JOptionPane();
-                String studioName = jop.showInputDialog(null, "Quel est le nom de votre studio ?","Mon studio - Nom du studio", JOptionPane.QUESTION_MESSAGE);
-                String studioBudget = jop.showInputDialog(null, "Quel est le budget de votre studio ?","Mon studio - Budget du studio", JOptionPane.QUESTION_MESSAGE);
-                jop2.showMessageDialog(null, "Le nom de votre studio est " + studioName + " et le budget est le " + studioBudget + "€.", "Mon studio", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane jop, jop2;
+                jop2 = new JOptionPane();
+                if (studioName[0] == null && studioBudget[0] == null) {
+                    jop = new JOptionPane();
+                    studioName[0] = jop.showInputDialog(null, "Quel est le nom de votre studio ?", "Mon studio - Nom du studio", JOptionPane.QUESTION_MESSAGE);
+                    studioBudget[0] = jop.showInputDialog(null, "Quel est le budget de votre studio ?", "Mon studio - Budget du studio", JOptionPane.QUESTION_MESSAGE);
+                }
+                jop2.showMessageDialog(null, "Le nom de votre studio est " + studioName[0] + " et le budget est le " + studioBudget[0] + "€.", "Mon studio", JOptionPane.INFORMATION_MESSAGE);
             }
         });
         menu.add(myStudio);
