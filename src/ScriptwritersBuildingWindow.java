@@ -1,17 +1,21 @@
 import javax.swing.*;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 
-public class ScriptwritersBuildingWindow extends JInternalFrame {
+public class ScriptwritersBuildingWindow extends JInternalFrame implements DocumentListener {
 
     protected JInternalFrame internalFrame;
-    private JTextField jTextField = new JTextField();
+    private JTextField movieTitle = new JTextField();
     private JPanel container = new JPanel();
     private JComboBox comboGenre;
     private JComboBox comboSw;
+    private JPanel panelButton;
+    private JButton button;
 
     private static int x = 320;
     private static int y = 100;
@@ -42,11 +46,12 @@ public class ScriptwritersBuildingWindow extends JInternalFrame {
         panelTitle.setPreferredSize(panelTitleSize);
         JLabel labelTitle = new JLabel("Le titre de votre film : ");
         labelTitle.setFont(police);
-        jTextField.setFont(police);
-        jTextField.setPreferredSize(new Dimension(150, 30));
-        jTextField.setForeground(Color.BLUE);
+        movieTitle.setFont(police);
+        movieTitle.setPreferredSize(new Dimension(150, 30));
+        movieTitle.setForeground(Color.BLUE);
+        movieTitle.getDocument().addDocumentListener(this);
         panelTitle.add(labelTitle);
-        panelTitle.add(jTextField);
+        panelTitle.add(movieTitle);
         container.add(panelTitle, BorderLayout.NORTH);
 
         //Choix du scénariste
@@ -88,10 +93,11 @@ public class ScriptwritersBuildingWindow extends JInternalFrame {
         container.add(panelLogo, BorderLayout.CENTER);
 
         //Bouton pour valider
-        JPanel panelButton = new JPanel();
+        panelButton = new JPanel();
         panelButton.setBackground(Color.WHITE);
         panelButton.setSize(200, 100);
-        JButton button = new JButton("Valider le scénario !");
+        button = new JButton("Valider le scénario !");
+        button.setEnabled(false);
         Dimension buttonSize = new Dimension(500, 100);
         button.addActionListener(new ButtonListener());
         button.setPreferredSize(buttonSize);
@@ -102,6 +108,30 @@ public class ScriptwritersBuildingWindow extends JInternalFrame {
 
         this.setContentPane(container);
         this.setVisible(true);
+    }
+
+
+    @Override
+    public void insertUpdate(DocumentEvent e) {
+        scanTextFields();
+    }
+
+    @Override
+    public void removeUpdate(DocumentEvent e) {
+        scanTextFields();
+    }
+
+    @Override
+    public void changedUpdate(DocumentEvent e) {
+
+    }
+
+    private void scanTextFields() {
+        boolean filled = true;
+        if (movieTitle.getText().length() == 0) {
+            filled = false;
+        }
+        button.setEnabled(filled);
     }
 
 
@@ -126,10 +156,11 @@ public class ScriptwritersBuildingWindow extends JInternalFrame {
         public void actionPerformed(ActionEvent action) {
             Scriptwriter scriptwriter = new Scriptwriter();
             scriptwriter.setName(String.valueOf(comboSw.getSelectedItem()));
-            currentMovie.setName(jTextField.getText());
+            currentMovie.setName(movieTitle.getText());
             currentMovie.setGenre(String.valueOf(comboGenre.getSelectedItem()));
             currentMovie.setScriptwriter(scriptwriter);
             //System.out.println(currentMovie.getName() + " " + currentMovie.getGenre() + " " + currentMovie.getScriptwriter()); //affichage console
+            setVisible(false);
         }
     }
 
