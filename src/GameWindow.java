@@ -9,10 +9,10 @@ import java.io.IOException;
 
 public class GameWindow extends Window {
 
-    private static int xy = 10;
+    //private static String studioName = null;
+    //private static String studioBudget = null;
 
-
-    public GameWindow() {
+    public GameWindow(Studio studio) {
         super();
         game();
     }
@@ -44,8 +44,12 @@ public class GameWindow extends Window {
         private static final Rectangle AREA_3 = new Rectangle(150, 500, 700, 350);
         // position de la quatrieme zone
         private static final Rectangle AREA_4 = new Rectangle(1180, 480, 550, 300);
+        // position de la cinquieme zone
+        private static final Rectangle AREA_5 = new Rectangle(30, 120, 150, 300);
         // image à dessiner
         private BufferedImage buff = null;
+
+        Studio studio;
 
         public MyCanvas(BufferedImage img) {
             this.addMouseListener(this);
@@ -56,11 +60,12 @@ public class GameWindow extends Window {
             g.drawImage(buff, 0, 0, buff.getWidth(), buff.getHeight(), this); // dessine l'image
             int alpha = 0; // 100% transparent
             Color transparent = new Color(255, 255, 255, alpha);
-            g.setColor(transparent); //couleur du cadre
+            g.setColor(Color.blue); //couleur du cadre
             g.drawRect(AREA_1.x, AREA_1.y, AREA_1.width, AREA_1.height);
             g.drawRect(AREA_2.x, AREA_2.y, AREA_2.width, AREA_2.height);
             g.drawRect(AREA_3.x, AREA_3.y, AREA_3.width, AREA_3.height);
             g.drawRect(AREA_4.x, AREA_4.y, AREA_4.width, AREA_4.height);
+            g.drawRect(AREA_5.x, AREA_5.y, AREA_5.width, AREA_5.height);
         }
 
         private void testLocation(Point mouse, Rectangle area, String nameBuilding, int numBuilding) {
@@ -77,7 +82,19 @@ public class GameWindow extends Window {
                         this.add(new MovieSetWindow());
                         break;
                     case 4:
-                        this.add(new ScriptwritersBuildingWindow());
+                        this.add(new ScriptwritersBuildingWindow(studio));
+                        break;
+                    case 5:
+                        MenuWindow menuWindow = new MenuWindow(studio);
+                        //this.add(menuWindow);
+                        /*JOptionPane jop, jop2;
+                        jop2 = new JOptionPane();
+                        if (studioName == null && studioBudget == null) {
+                            jop = new JOptionPane();
+                            studioName = jop.showInputDialog(null, "Quel est le nom de votre studio ?", "Mon studio - Nom du studio", JOptionPane.QUESTION_MESSAGE);
+                            studioBudget = jop.showInputDialog(null, "Quel est le budget de votre studio ?", "Mon studio - Budget du studio", JOptionPane.QUESTION_MESSAGE);
+                        }
+                        jop2.showMessageDialog(null, "Le nom de votre studio est " + studioName + " et le budget est le " + studioBudget + " €.", "Mon studio", JOptionPane.INFORMATION_MESSAGE);*/
                         break;
                     default:
                         System.out.println("Ce batiment n'existe pas !!!");
@@ -94,6 +111,7 @@ public class GameWindow extends Window {
             testLocation(p, AREA_2, "Bureau de la post-production", 2);
             testLocation(p, AREA_3, "Plateau de tournage", 3);
             testLocation(p, AREA_4, "Bureau des scénaristes", 4);
+            testLocation(p, AREA_5, "Studio", 5);
         }
 
         public void mousePressed(MouseEvent e) {
