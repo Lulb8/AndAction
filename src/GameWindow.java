@@ -86,15 +86,6 @@ public class GameWindow extends Window {
                         break;
                     case 5:
                         MenuWindow menuWindow = new MenuWindow(studio);
-                        //this.add(menuWindow);
-                        /*JOptionPane jop, jop2;
-                        jop2 = new JOptionPane();
-                        if (studioName == null && studioBudget == null) {
-                            jop = new JOptionPane();
-                            studioName = jop.showInputDialog(null, "Quel est le nom de votre studio ?", "Mon studio - Nom du studio", JOptionPane.QUESTION_MESSAGE);
-                            studioBudget = jop.showInputDialog(null, "Quel est le budget de votre studio ?", "Mon studio - Budget du studio", JOptionPane.QUESTION_MESSAGE);
-                        }
-                        jop2.showMessageDialog(null, "Le nom de votre studio est " + studioName + " et le budget est le " + studioBudget + " €.", "Mon studio", JOptionPane.INFORMATION_MESSAGE);*/
                         break;
                     default:
                         System.out.println("Ce batiment n'existe pas !!!");
