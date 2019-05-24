@@ -27,28 +27,42 @@ public class Window extends JFrame {
 
     public void menuBar(){
         JMenuBar menuBar = new JMenuBar();
-        //Fichier
-        JMenu fileMenu = new JMenu("Fichier");
-        fileMenu.setMnemonic(KeyEvent.VK_F);
+        //Menu
+        JMenu menu = new JMenu("Menu");
+        menu.setMnemonic(KeyEvent.VK_F);
+        //Quitter
         JMenuItem exit = new JMenuItem("Quitter");
         exit.setMnemonic(KeyEvent.VK_E);
         exit.setToolTipText("Quitter le jeu");
         exit.addActionListener((even)-> System.exit(0));
-        fileMenu.add(exit);
-        menuBar.add(fileMenu);
+        menu.add(exit);
+        menuBar.add(menu);
         //A propos
         JMenu about = new JMenu("A propos");
         about.setMnemonic(KeyEvent.VK_F);
+        //L'équipe
         JMenuItem team = new JMenuItem("L'équipe");
         team.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent arg0) {
                 JOptionPane jop = new JOptionPane();
-                jop.showConfirmDialog(null, "L'équipe :\nmachin\ntruc\nbidule", "L'équipe du jeu", JOptionPane.CLOSED_OPTION);
+                jop.showMessageDialog(null, "L'équipe :\nSarah\nLucie\nEmma\nEmmy\nJessica", "L'équipe du jeu", JOptionPane.INFORMATION_MESSAGE);
             }
         });
         about.add(team);
+        //Aide
         JMenuItem help = new JMenuItem("Aide");
-        help.setMnemonic(KeyEvent.VK_E);
+        help.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent arg0) {
+                JOptionPane jop = new JOptionPane();
+                jop.showConfirmDialog(null, "Bienvenue dans le jeu \"And Action !!!\"\n Dans ce jeu vous allez pouvoir diriger votre propre studio de cinéma.\n"
+                        + "Pour commencer à jouer, vous devez choisir le nom et le budget de votre studio en cliquant sur le chateau d'eau présent sur la carte.\n"
+                        + "Une fois ceci fait, il est maintenant temps de créer votre premier film en cliquant sur le bureau des scénaristes.\n"
+                        + "Il vous sera possible de choisir le titre, le genre et le scénariste de votre film. Maintenant, il faut un acteur, un réalisateur et une équipe technique pour tourner votre chef d'oeuvre.\n"
+                        + "C'est bon, le scénario est prêt, l'acteur a répété son texte et le réalisateur s'apprête à dire \"And Action !!!\", ça veut maintenant dire qu'il est temps de se diriger vers le plateau de tournage.\n"
+                        + "Le clap de fin a retentit et il faut diffuser ce chef d'oeuvre dans les salles obscures mais votre film doit se faire connaître et c'est pour ça que l'équipe marketing existe, donc dépêchez vous de rejoindre le bureau de post-production.\n"
+                        + "\nMaintenant que votre premier film est fini, vous pouvez lancer la production de votre prochain blockbuster !", "Aide", JOptionPane.CLOSED_OPTION);
+            }
+        });
         about.add(help);
         menuBar.add(about);
         //Horloge

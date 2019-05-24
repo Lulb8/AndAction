@@ -9,6 +9,11 @@ public class ActorsBuildingWindow extends JInternalFrame {
 
     protected JInternalFrame internalFrame;
     private JPanel container = new JPanel();
+    private JButton button;
+    private Movie currentMovie;
+    JComboBox comboActor;
+    private JComboBox comboDirector;
+    private JComboBox comboTC;
 
     private static int x = 320;
     private static int y = 100;
@@ -16,7 +21,7 @@ public class ActorsBuildingWindow extends JInternalFrame {
     /**
      * Constructeur
      */
-    public ActorsBuildingWindow() {
+    public ActorsBuildingWindow(Movie currentMovie) {
         internalFrame = new JInternalFrame();
         this.setTitle("Bureau des acteurs et réalisateurs");
         this.setSize(1200, 800);
@@ -34,7 +39,7 @@ public class ActorsBuildingWindow extends JInternalFrame {
         panelTitle.setBackground(Color.WHITE);
         Dimension panelTitleSize = new Dimension(500, 200);
         panelTitle.setPreferredSize(panelTitleSize);
-        JLabel labelTitle = new JLabel("Le titre de votre film : "); //recuperer le titre du film en cours
+        JLabel labelTitle = new JLabel("Le titre de votre film : "); //recuperer le titre du film en cours   + currentMovie.getName()
         labelTitle.setFont(policeTitle);
         panelTitle.add(labelTitle);
         container.add(panelTitle, BorderLayout.NORTH);
@@ -48,7 +53,7 @@ public class ActorsBuildingWindow extends JInternalFrame {
         JLabel labelActor = new JLabel("L'acteur de votre film : ");
         labelActor.setFont(police);
         String[] actors = {"AMachin", "ATruc", "ABidule", "AChouette"};
-        JComboBox comboActor = new JComboBox(actors);
+        comboActor = new JComboBox(actors);
         comboActor.addItemListener(new ItemState());
         comboActor.addActionListener(new ItemAction(comboActor));
         comboActor.setPreferredSize(new Dimension(100, 20));
@@ -61,7 +66,7 @@ public class ActorsBuildingWindow extends JInternalFrame {
         JLabel labelDirector = new JLabel("Le réalisateur de votre film : ");
         labelDirector.setFont(police);
         String[] directors = {"RMachin", "RTruc", "RBidule", "RChouette"};
-        JComboBox comboDirector = new JComboBox(directors);
+        comboDirector = new JComboBox(directors);
         comboDirector.addItemListener(new ItemState());
         comboDirector.addActionListener(new ItemAction(comboDirector));
         comboDirector.setPreferredSize(new Dimension(100, 20));
@@ -80,7 +85,7 @@ public class ActorsBuildingWindow extends JInternalFrame {
         JLabel labelTC = new JLabel("L'équipe technique de votre film : ");
         labelTC.setFont(police);
         String[] technicalCrew = {"TMachin", "TTruc", "TBidule", "TChouette"};
-        JComboBox comboTC = new JComboBox(technicalCrew);
+        comboTC = new JComboBox(technicalCrew);
         comboTC.addItemListener(new ItemState());
         comboTC.addActionListener(new ItemAction(comboTC));
         comboTC.setPreferredSize(new Dimension(100, 20));
@@ -102,6 +107,7 @@ public class ActorsBuildingWindow extends JInternalFrame {
         panelButton.setBackground(Color.WHITE);
         panelButton.setSize(200, 100);
         JButton button = new JButton("Valider le casting !");
+        button.addActionListener(new ButtonListener());
         Dimension buttonSize = new Dimension(500, 100);
         button.setPreferredSize(buttonSize);
         button.setFont(policeTitle);
@@ -128,6 +134,22 @@ public class ActorsBuildingWindow extends JInternalFrame {
 
         public void actionPerformed(ActionEvent e) {
             System.out.println("ComboBox action sur " + combo.getSelectedItem());
+        }
+    }
+
+    class ButtonListener implements ActionListener {
+        public void actionPerformed(ActionEvent action) {
+            Actor actor = new Actor();
+            actor.setName(String.valueOf(comboActor.getSelectedItem()));
+            //currentMovie.setActors(this.setActors()); //TODO a faire, probleme avec Actors
+            Director director = new Director();
+            director.setName(String.valueOf(comboDirector.getSelectedItem()));
+            //currentMovie.setDirector(director); //TODO probleme
+            TechnicalCrew technicalCrew = new TechnicalCrew();
+            technicalCrew.setName(String.valueOf(comboTC.getSelectedItem()));
+            //currentMovie.setTechnicalCrew(technicalCrew); //TODO probleme
+            //System.out.println(currentMovie.getActors() + " " + currentMovie.getDirector() + " " + currentMovie.getTechnicalCrew()); //affichage console //TODO probleme
+            setVisible(false);
         }
     }
 }

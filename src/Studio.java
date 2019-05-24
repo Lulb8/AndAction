@@ -12,7 +12,6 @@ public class Studio
 
     /** Associations */
     private Movie movie;
-    private MenuBar menuBar;
     private People people;
     private Buildings buildings;
 
