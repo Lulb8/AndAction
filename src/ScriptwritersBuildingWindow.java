@@ -20,8 +20,6 @@ public class ScriptwritersBuildingWindow extends JInternalFrame implements Docum
     private static int x = 320;
     private static int y = 100;
 
-    Scriptwriter scriptwriter=new Scriptwriter();
-
     public Movie currentMovie = new Movie();
 
     /**
@@ -57,9 +55,6 @@ public class ScriptwritersBuildingWindow extends JInternalFrame implements Docum
         panelTitle.add(movieTitle);
         container.add(panelTitle, BorderLayout.NORTH);
 
-        currentMovie.setState(0);
-        currentMovie.setName(movieTitle.getText());
-
         //Choix du scénariste
         JPanel panelSw = new JPanel();
         panelSw.setBackground(Color.WHITE);
@@ -74,11 +69,6 @@ public class ScriptwritersBuildingWindow extends JInternalFrame implements Docum
         panelSw.add(labelSw);
         panelSw.add(comboSw);
         container.add(panelSw, BorderLayout.WEST);
-
-        int i =comboSw.getItemCount();
-        scriptwriter.setName(sw[i-1]);
-
-        currentMovie.setScriptwriter(scriptwriter);
 
         //Choix du genre
         JPanel panelGenre = new JPanel();
@@ -166,6 +156,7 @@ public class ScriptwritersBuildingWindow extends JInternalFrame implements Docum
     class ButtonListener implements ActionListener {
         public void actionPerformed(ActionEvent action) {
             Scriptwriter scriptwriter = new Scriptwriter();
+            currentMovie.setState(0);
             scriptwriter.setName(String.valueOf(comboSw.getSelectedItem()));
             currentMovie.setName(movieTitle.getText());
             currentMovie.setGenre(String.valueOf(comboGenre.getSelectedItem()));

@@ -24,6 +24,7 @@ public class ActorsBuildingWindow extends JInternalFrame {
      * Constructeur
      */
     public Movie ActorsBuildingWindow(Movie currentMovie) {
+        if (currentMovie!=null) {
         internalFrame = new JInternalFrame();
         this.setTitle("Bureau des acteurs et réalisateurs");
         this.setSize(1200, 800);
@@ -64,10 +65,6 @@ public class ActorsBuildingWindow extends JInternalFrame {
         boxAD.add(comboActor);
         boxAD.add(Box.createRigidArea(new Dimension(0,150))); //espacement entre les 2 composants
 
-        int i =comboActor.getItemCount();
-        actorsChosen.addActor(actors[i-1]);
-
-        currentMovie.setActors(actorsChosen);
 
         //Choix du réalisateur
         JLabel labelDirector = new JLabel("Le réalisateur de votre film : ");
@@ -124,7 +121,7 @@ public class ActorsBuildingWindow extends JInternalFrame {
 
         this.setContentPane(container);
         this.setVisible(true);
-
+        }
         return currentMovie;
     }
 
@@ -149,15 +146,18 @@ public class ActorsBuildingWindow extends JInternalFrame {
     class ButtonListener implements ActionListener {
         public void actionPerformed(ActionEvent action) {
             Actor actor = new Actor();
+            Actors actors = new Actors();
             actor.setName(String.valueOf(comboActor.getSelectedItem()));
-            //currentMovie.setActors(this.setActors()); //TODO a faire, probleme avec Actors
+            actors.addActor(actor);
+            //currentMovie.setActors(actors);
+            //currentMovie.setActors(this.setActors());
             Director director = new Director();
             director.setName(String.valueOf(comboDirector.getSelectedItem()));
-            //currentMovie.setDirector(director); //TODO probleme
+            //currentMovie.setDirector(director);//TODO probleme
             TechnicalCrew technicalCrew = new TechnicalCrew();
             technicalCrew.setName(String.valueOf(comboTC.getSelectedItem()));
             //currentMovie.setTechnicalCrew(technicalCrew); //TODO probleme
-            //System.out.println(currentMovie.getActors() + " " + currentMovie.getDirector() + " " + currentMovie.getTechnicalCrew()); //affichage console //TODO probleme
+//            System.out.println(currentMovie.getActors() + " " + currentMovie.getDirector() + " " + currentMovie.getTechnicalCrew()); //affichage console //TODO probleme
             setVisible(false);
         }
     }
