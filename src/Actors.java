@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.List;
 
 public class Actors{
 
@@ -42,10 +41,10 @@ public class Actors{
 
     public void initializeActors() {
         Actor a1 = new Actor(), a2 = new Actor(), a3 = new Actor(), a4 = new Actor();
-        a1.createActor("Melanie",1000,"rousse");
-        a2.createActor("Kevin",500,"grand");
-        a3.createActor("Léo",1100,"brun");
-        a4.createActor("Sofia",850,"musclée");
+        a1.createActor("AMachin",1000,"rousse");
+        a2.createActor("AChouette",500,"grand");
+        a3.createActor("ABidule",1100,"brun");
+        a4.createActor("ATruc",850,"musclée");
         actors.add(a1);
         actors.add(a2);
         actors.add(a3);
@@ -62,15 +61,17 @@ public class Actors{
     }
 
 
-
-
-    /*
-    public void toString(ArrayList<Actor> actors) {
-        for (Actor a : actors) {
-            System.out.print(a);
+    public Actors addActor(String nameActor) {
+        Actors actors = new Actors();
+        actors.initializeActors();
+        for (Actor a : this.getActors()) {
+            if (a.getName().equals(nameActor)) {
+                System.out.print("Vous avez choisi " + a.getName()+" comme acteur(e)\n");
+                this.addActor(a);
+            }
         }
+        return this;
     }
-    */
 
 
 }

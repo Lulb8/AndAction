@@ -20,13 +20,15 @@ public class ScriptwritersBuildingWindow extends JInternalFrame implements Docum
     private static int x = 320;
     private static int y = 100;
 
-    private Movie currentMovie;
+    Scriptwriter scriptwriter=new Scriptwriter();
+
+    public Movie currentMovie = new Movie();
 
     /**
      * Constructeur
      */
-    public ScriptwritersBuildingWindow(Studio studio) {
-        currentMovie = new Movie();
+    public Movie ScriptwritersBuildingWindow(Studio studio) {
+        //currentMovie = new Movie();
         internalFrame = new JInternalFrame();
         this.setTitle("Bureau des scénaristes");
         this.setSize(1200, 800);
@@ -40,6 +42,7 @@ public class ScriptwritersBuildingWindow extends JInternalFrame implements Docum
         Font policeTitle = new Font("Arial", Font.BOLD, 22);
 
         //Titre du film
+        //movieTitle.setText("Titre de mon film");
         JPanel panelTitle = new JPanel();
         panelTitle.setBackground(Color.WHITE);
         Dimension panelTitleSize = new Dimension(500, 200);
@@ -53,6 +56,9 @@ public class ScriptwritersBuildingWindow extends JInternalFrame implements Docum
         panelTitle.add(labelTitle);
         panelTitle.add(movieTitle);
         container.add(panelTitle, BorderLayout.NORTH);
+
+        currentMovie.setState(0);
+        currentMovie.setName(movieTitle.getText());
 
         //Choix du scénariste
         JPanel panelSw = new JPanel();
@@ -69,6 +75,10 @@ public class ScriptwritersBuildingWindow extends JInternalFrame implements Docum
         panelSw.add(comboSw);
         container.add(panelSw, BorderLayout.WEST);
 
+        int i =comboSw.getItemCount();
+        scriptwriter.setName(sw[i-1]);
+
+        currentMovie.setScriptwriter(scriptwriter);
 
         //Choix du genre
         JPanel panelGenre = new JPanel();
@@ -108,6 +118,7 @@ public class ScriptwritersBuildingWindow extends JInternalFrame implements Docum
 
         this.setContentPane(container);
         this.setVisible(true);
+        return currentMovie;
     }
 
 
@@ -159,7 +170,7 @@ public class ScriptwritersBuildingWindow extends JInternalFrame implements Docum
             currentMovie.setName(movieTitle.getText());
             currentMovie.setGenre(String.valueOf(comboGenre.getSelectedItem()));
             currentMovie.setScriptwriter(scriptwriter);
-            //System.out.println(currentMovie.getName() + " " + currentMovie.getGenre() + " " + currentMovie.getScriptwriter()); //affichage console
+            System.out.println(currentMovie.getName() + " " + currentMovie.getGenre() + " " + currentMovie.getScriptwriterName()); //affichage console
             setVisible(false);
         }
     }

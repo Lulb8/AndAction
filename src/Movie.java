@@ -145,6 +145,10 @@ public class Movie
         return scriptwriter;
     }
 
+    public String getScriptwriterName() {
+        return scriptwriter.getName();
+    }
+
     /**
      *
      * @param scriptwriter

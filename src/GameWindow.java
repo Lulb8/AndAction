@@ -65,12 +65,17 @@ public class GameWindow extends Window {
             g.drawRect(AREA_5.x, AREA_5.y, AREA_5.width, AREA_5.height);
         }
 
+        ScriptwritersBuildingWindow scriptwritersBuilding = new ScriptwritersBuildingWindow();
+        ActorsBuildingWindow actorsBuilding = new ActorsBuildingWindow();
+        MovieSetWindow movieSet = new MovieSetWindow();
+        PostProdBuildingWindow postProd = new PostProdBuildingWindow();
         private void testLocation(Point mouse, Rectangle area, String nameBuilding, int numBuilding) {
             if (area.contains(mouse)) {
                 this.removeAll();
                 switch (numBuilding) {
                     case 1:
-                        this.add(new ActorsBuildingWindow(currentMovie));
+                        this.add(actorsBuilding);
+                        currentMovie=actorsBuilding.ActorsBuildingWindow(currentMovie);
                         break;
                     case 2:
                         this.add(new PostProdBuildingWindow());
@@ -79,7 +84,8 @@ public class GameWindow extends Window {
                         this.add(new MovieSetWindow());
                         break;
                     case 4:
-                        this.add(new ScriptwritersBuildingWindow(studio));
+                        this.add(scriptwritersBuilding);
+                        currentMovie=scriptwritersBuilding.ScriptwritersBuildingWindow(studio);
                         break;
                     case 5:
                         MenuWindow menuWindow = new MenuWindow(studio);

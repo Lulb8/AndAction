@@ -1,4 +1,3 @@
-import java.awt.*;
 import java.util.Scanner;
 
 public class Launch {
@@ -70,7 +69,7 @@ public class Launch {
     private void launchAction(int choice, Studio studio){
         switch (choice){
             case 1:
-                currentMovie=scriptwritersBuilding.launchScriptwriter(); //TODO ajouter le sciptwriter
+                currentMovie=scriptwritersBuilding.launchScriptwriter();
                 //System.out.print(currentMovie);
                 break;
             case 2:

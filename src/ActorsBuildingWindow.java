@@ -18,10 +18,12 @@ public class ActorsBuildingWindow extends JInternalFrame {
     private static int x = 320;
     private static int y = 100;
 
+    Actors actorsChosen=new Actors();
+
     /**
      * Constructeur
      */
-    public ActorsBuildingWindow(Movie currentMovie) {
+    public Movie ActorsBuildingWindow(Movie currentMovie) {
         internalFrame = new JInternalFrame();
         this.setTitle("Bureau des acteurs et réalisateurs");
         this.setSize(1200, 800);
@@ -39,7 +41,7 @@ public class ActorsBuildingWindow extends JInternalFrame {
         panelTitle.setBackground(Color.WHITE);
         Dimension panelTitleSize = new Dimension(500, 200);
         panelTitle.setPreferredSize(panelTitleSize);
-        JLabel labelTitle = new JLabel("Le titre de votre film : "); //recuperer le titre du film en cours   + currentMovie.getName()
+        JLabel labelTitle = new JLabel("Le titre de votre film : " + currentMovie.getName()); //recuperer le titre du film en cours   + currentMovie.getName()
         labelTitle.setFont(policeTitle);
         panelTitle.add(labelTitle);
         container.add(panelTitle, BorderLayout.NORTH);
@@ -61,6 +63,11 @@ public class ActorsBuildingWindow extends JInternalFrame {
         boxAD.add(labelActor);
         boxAD.add(comboActor);
         boxAD.add(Box.createRigidArea(new Dimension(0,150))); //espacement entre les 2 composants
+
+        int i =comboActor.getItemCount();
+        actorsChosen.addActor(actors[i-1]);
+
+        currentMovie.setActors(actorsChosen);
 
         //Choix du réalisateur
         JLabel labelDirector = new JLabel("Le réalisateur de votre film : ");
@@ -117,6 +124,8 @@ public class ActorsBuildingWindow extends JInternalFrame {
 
         this.setContentPane(container);
         this.setVisible(true);
+
+        return currentMovie;
     }
 
 

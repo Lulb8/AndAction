@@ -13,4 +13,7 @@ public String getTheme() {
             return w;
         }
 
+    public void setTheme(String theme) {
+        this.theme = theme;
     }
+}

@@ -5,7 +5,7 @@ public class Console {
     public static void main(String[] args) {
         Studio studio = new Studio();
         studio.moviesDone = new ArrayList<Movie>();
-        //GameWindow gameWindow = new GameWindow(studio);
+        GameWindow gameWindow = new GameWindow(studio);
 
         Launch launch = new Launch();
         int state=-1; //état du film: 0 si le tournage n'a pas commencé, 1 si il est en tournage, 2 s'il est fini
