@@ -36,7 +36,7 @@ public class Actor extends People
      */
     public String toString() {
         return this.getName()
-                +" est décrit comme "+this.getPhysicalDescription()
-                +". Son salaire est "+this.getSalary()+"\n";
+                +"(description : "+this.getPhysicalDescription()
+                +", salaire : "+this.getSalary()+")\n";
     }
 }

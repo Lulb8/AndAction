@@ -16,7 +16,8 @@ public class MovieSetWindow extends JInternalFrame {
     /**
      * Constructeur
      */
-    public MovieSetWindow() {
+    public Movie MovieSetWindow(Movie currentMovie) {
+        if (currentMovie!=null) {
         internalFrame = new JInternalFrame();
         this.setTitle("Bureau des acteurs et réalisateurs");
         this.setSize(1200, 800);
@@ -34,7 +35,7 @@ public class MovieSetWindow extends JInternalFrame {
         panelTitle.setBackground(Color.WHITE);
         Dimension panelTitleSize = new Dimension(500, 200);
         panelTitle.setPreferredSize(panelTitleSize);
-        JLabel labelTitle = new JLabel("Le titre de votre film : "); //recuperer le titre du film en cours
+        JLabel labelTitle = new JLabel("Le titre de votre film : "+ currentMovie.getName()); //recuperer le titre du film en cours
         labelTitle.setFont(policeTitle);
         panelTitle.add(labelTitle);
         container.add(panelTitle, BorderLayout.NORTH);
@@ -45,7 +46,7 @@ public class MovieSetWindow extends JInternalFrame {
         panelTeam.setBackground(Color.WHITE);
 
         //Equipe du film
-        JLabel labelTeam = new JLabel("L'équipe de votre film : ");
+        JLabel labelTeam = new JLabel("L'équipe de votre film : acteurs : "+currentMovie.getActors()+"scénariste : "+currentMovie.getScriptwriterName()+"réalisateur : "+currentMovie.getDirector()+"\néquipe technique : "+currentMovie.getTechnicalCrew());
         labelTeam.setFont(police);
         boxTeam.add(labelTeam);
         panelTeam.add(boxTeam);
@@ -57,7 +58,7 @@ public class MovieSetWindow extends JInternalFrame {
         panelState.setBackground(Color.WHITE);
 
         //L'etat du film
-        JLabel labelState = new JLabel("L'état de votre film : ");
+        JLabel labelState = new JLabel("L'état de votre film : "+currentMovie.getState());
         labelState.setFont(police);
         boxState.add(labelState);
         panelState.add(boxState);
@@ -84,6 +85,9 @@ public class MovieSetWindow extends JInternalFrame {
 
         this.setContentPane(container);
         this.setVisible(true);
+
+        }
+        return currentMovie;
     }
 
 

@@ -9,21 +9,24 @@ public class ActorsBuildingWindow extends JInternalFrame {
 
     protected JInternalFrame internalFrame;
     private JPanel container = new JPanel();
+    private JPanel panelButton;
     private JButton button;
-    private Movie currentMovie;
     JComboBox comboActor;
     private JComboBox comboDirector;
     private JComboBox comboTC;
 
+    private Actor actor = new Actor();
+    private Actors actorsChosen=new Actors();
+    private Director directorChosen = new Director();
+    private TechnicalCrew technicalCrew = new TechnicalCrew();
+
     private static int x = 320;
     private static int y = 100;
-
-    Actors actorsChosen=new Actors();
 
     /**
      * Constructeur
      */
-    public Movie ActorsBuildingWindow(Movie currentMovie) {
+    public void ActorsBuildingWindow(Movie currentMovie) {
         if (currentMovie!=null) {
         internalFrame = new JInternalFrame();
         this.setTitle("Bureau des acteurs et réalisateurs");
@@ -64,7 +67,6 @@ public class ActorsBuildingWindow extends JInternalFrame {
         boxAD.add(labelActor);
         boxAD.add(comboActor);
         boxAD.add(Box.createRigidArea(new Dimension(0,150))); //espacement entre les 2 composants
-
 
         //Choix du réalisateur
         JLabel labelDirector = new JLabel("Le réalisateur de votre film : ");
@@ -118,11 +120,9 @@ public class ActorsBuildingWindow extends JInternalFrame {
         panelButton.add(button);
         container.add(panelButton, BorderLayout.SOUTH);
 
-
-        this.setContentPane(container);
+            this.setContentPane(container);
         this.setVisible(true);
         }
-        return currentMovie;
     }
 
 
@@ -145,20 +145,29 @@ public class ActorsBuildingWindow extends JInternalFrame {
 
     class ButtonListener implements ActionListener {
         public void actionPerformed(ActionEvent action) {
-            Actor actor = new Actor();
-            Actors actors = new Actors();
             actor.setName(String.valueOf(comboActor.getSelectedItem()));
-            actors.addActor(actor);
+            actorsChosen.addActor(actor);
             //currentMovie.setActors(actors);
             //currentMovie.setActors(this.setActors());
-            Director director = new Director();
-            director.setName(String.valueOf(comboDirector.getSelectedItem()));
-            //currentMovie.setDirector(director);//TODO probleme
-            TechnicalCrew technicalCrew = new TechnicalCrew();
+            directorChosen.setName(String.valueOf(comboDirector.getSelectedItem()));
+            //currentMovie.setDirector(director);
             technicalCrew.setName(String.valueOf(comboTC.getSelectedItem()));
-            //currentMovie.setTechnicalCrew(technicalCrew); //TODO probleme
-//            System.out.println(currentMovie.getActors() + " " + currentMovie.getDirector() + " " + currentMovie.getTechnicalCrew()); //affichage console //TODO probleme
+            //currentMovie.setTechnicalCrew(technicalCrew);
+            System.out.println(getActors() + " " +getDirector() + " " +getTechnicalCrew()); //affichage console
             setVisible(false);
         }
     }
+
+    public Actors getActors() {
+        return actorsChosen;
+    }
+
+    public Director getDirector() {
+        return directorChosen;
+    }
+
+    public TechnicalCrew getTechnicalCrew() {
+        return technicalCrew;
+    }
+
 }
