@@ -28,6 +28,11 @@ public class GameWindow extends Window {
 
         this.frame.setContentPane(new MyCanvas(img));
 
+        //musique qui joue pendant le jeu:
+        File musicFile = new File("PST_IntoTheWoods.wav");
+        Sound music = new Sound();
+        music.PlaySound(musicFile);
+
         run();
     }
 
