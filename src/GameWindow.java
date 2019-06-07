@@ -87,7 +87,7 @@ public class GameWindow extends Window {
                         break;
                     case 2:
                         this.add(postProd); //TODO
-                        postProd.PostProdBuildingWindow();
+                        postProd.PostProdBuildingWindow(currentMovie);
                         break;
                     case 3:
                         this.add(movieSet);

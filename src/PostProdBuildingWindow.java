@@ -17,7 +17,8 @@ public class PostProdBuildingWindow extends JInternalFrame {
     /**
      * Constructeur
      */
-    public void PostProdBuildingWindow() {
+    public void PostProdBuildingWindow(Movie currentMovie) {
+        if (currentMovie!=null) {
         internalFrame = new JInternalFrame();
         this.setTitle("Bureau de la post-production");
         this.setSize(1200, 800);
@@ -35,7 +36,7 @@ public class PostProdBuildingWindow extends JInternalFrame {
         panelTitle.setBackground(Color.WHITE);
         Dimension panelTitleSize = new Dimension(500, 200);
         panelTitle.setPreferredSize(panelTitleSize);
-        JLabel labelTitle = new JLabel("Le titre de votre film : "); //recuperer le titre du film en cours
+        JLabel labelTitle = new JLabel("Le titre de votre film : "+ currentMovie.getName()); //recuperer le titre du film en cours
         labelTitle.setFont(policeTitle);
         panelTitle.add(labelTitle);
         container.add(panelTitle, BorderLayout.NORTH);
@@ -90,6 +91,7 @@ public class PostProdBuildingWindow extends JInternalFrame {
 
         this.setContentPane(container);
         this.setVisible(true);
+        }
     }
 
 
