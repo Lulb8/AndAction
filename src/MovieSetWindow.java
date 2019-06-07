@@ -46,7 +46,7 @@ public class MovieSetWindow extends JInternalFrame {
         panelTeam.setBackground(Color.WHITE);
 
         //Equipe du film
-        JLabel labelTeam = new JLabel("L'équipe de votre film : acteurs : "+currentMovie.getActors()+"scénariste : "+currentMovie.getScriptwriterName()+"réalisateur : "+currentMovie.getDirector()+"\néquipe technique : "+currentMovie.getTechnicalCrew());
+        JLabel labelTeam = new JLabel("L'équipe de votre film : acteurs : "+currentMovie.getActors()+"\n scénariste : "+currentMovie.getScriptwriterName()+"\n réalisateur : "+currentMovie.getDirector()+"\n équipe technique : "+currentMovie.getTechnicalCrew());
         labelTeam.setFont(police);
         boxTeam.add(labelTeam);
         panelTeam.add(boxTeam);

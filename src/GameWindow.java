@@ -73,7 +73,7 @@ public class GameWindow extends Window {
         ScriptwritersBuildingWindow scriptwritersBuilding = new ScriptwritersBuildingWindow();
         ActorsBuildingWindow actorsBuilding = new ActorsBuildingWindow();
         MovieSetWindow movieSet = new MovieSetWindow();
-        //PostProdBuildingWindow postProd = new PostProdBuildingWindow();
+        PostProdBuildingWindow postProd = new PostProdBuildingWindow();
         private void testLocation(Point mouse, Rectangle area, String nameBuilding, int numBuilding) {
             if (area.contains(mouse)) {
                 this.removeAll();
@@ -86,8 +86,8 @@ public class GameWindow extends Window {
                         currentMovie.setTechnicalCrew(actorsBuilding.getTechnicalCrew());
                         break;
                     case 2:
-                        //this.add(postProd); //TODO
-                        //postProd.PostProdBuil
+                        this.add(postProd); //TODO
+                        postProd.PostProdBuildingWindow();
                         break;
                     case 3:
                         this.add(movieSet);

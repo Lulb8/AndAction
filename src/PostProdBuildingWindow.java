@@ -17,8 +17,7 @@ public class PostProdBuildingWindow extends JInternalFrame {
     /**
      * Constructeur
      */
-    public PostProdBuildingWindow(Movie currentMovie) {
-        if (currentMovie!=null) {
+    public void PostProdBuildingWindow() {
         internalFrame = new JInternalFrame();
         this.setTitle("Bureau de la post-production");
         this.setSize(1200, 800);
@@ -89,10 +88,8 @@ public class PostProdBuildingWindow extends JInternalFrame {
         panelButton.add(button);
         container.add(panelButton, BorderLayout.SOUTH);
 
-
         this.setContentPane(container);
         this.setVisible(true);
-        }
     }
 
 
