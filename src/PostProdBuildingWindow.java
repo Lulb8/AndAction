@@ -61,15 +61,22 @@ public class PostProdBuildingWindow extends JInternalFrame {
 
         //Panel de droite
         JPanel panelFeature = new JPanel();
-        //Box boxFeature = Box.createVerticalBox();
+        Box boxFeature = Box.createVerticalBox();
         panelFeature.setBackground(Color.WHITE);
 
         //Resumé des caractéristiques du film en cours
-        JLabel labelFeature = new JLabel("Les caractéristiques de votre film : le réalisateur : "+currentMovie.getDirector());
+        JLabel labelFeature = new JLabel("Les caractéristiques de votre film : ");
         labelFeature.setFont(police);
-        panelFeature.add(labelFeature);
+        boxFeature.add(labelFeature);
+        panelFeature.add(boxFeature);
         container.add(panelFeature, BorderLayout.EAST);
 
+            //le genre
+            JLabel labelG = new JLabel("<html> <br>Le genre de votre film : "+currentMovie.getGenre()
+            +"<br>Le scénariste de votre film : "+currentMovie.scriptwriter.getName()+"</html>");
+            labelG.setFont(police);
+            boxFeature.add(labelG);
+            panelFeature.add(boxFeature);
 
         //Logo du building
         JPanel panelLogo = new JPanel();

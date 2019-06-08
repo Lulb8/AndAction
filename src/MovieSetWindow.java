@@ -46,36 +46,15 @@ public class MovieSetWindow extends JInternalFrame {
         panelTeam.setBackground(Color.WHITE);
 
         //Equipe du film
-        JLabel labelTeam = new JLabel("L'équipe de votre film : ");
-        labelTeam.setFont(police);
+        JLabel labelTeam = new JLabel("<html>L'équipe de votre film : <br>"+
+                "Le scénariste : "+currentMovie.scriptwriter.getName()+"<br>"+
+                "Le réalisateur : "+currentMovie.director.getName()+"<br>"+
+                "Les acteurs : "+currentMovie.actors.getActors()+"<br>"+
+                    "L'équipe technique : "+currentMovie.technicalCrew.getName()+"</html>");
+            labelTeam.setFont(police);
         boxTeam.add(labelTeam);
         panelTeam.add(boxTeam);
         container.add(panelTeam, BorderLayout.WEST);
-            //les acteurs
-            JLabel labelActor = new JLabel("Les acteurs : "+currentMovie.getActors());
-            labelActor.setFont(police);
-            boxTeam.add(labelActor);
-            panelTeam.add(boxTeam);
-            //le scénariste
-            JLabel labelSw = new JLabel("scénariste : "+currentMovie.getScriptwriterName());
-            labelSw.setFont(police);
-            boxTeam.add(labelSw);
-            panelTeam.add(boxTeam);
-            //le réalisateur
-            JLabel labelDir = new JLabel("réalisateur : "+currentMovie.getDirector());
-            labelDir.setFont(police);
-            boxTeam.add(labelDir);
-            panelTeam.add(boxTeam);
-            //le genre
-            JLabel labelG = new JLabel("Le genre du film : "+currentMovie.getGenre());
-            labelG.setFont(police);
-            boxTeam.add(labelG);
-            panelTeam.add(boxTeam);
-            //l'equipe
-            JLabel labelTc = new JLabel("L'équipe technique : "+currentMovie.getTechnicalCrew());
-            labelTc.setFont(police);
-            boxTeam.add(labelTc);
-            panelTeam.add(boxTeam);
 
         //Panel de droite
         JPanel panelState = new JPanel();
@@ -101,6 +80,7 @@ public class MovieSetWindow extends JInternalFrame {
         panelButton.setBackground(Color.WHITE);
         panelButton.setSize(200, 100);
         JButton button = new JButton("Le tournage est fini !");
+        button.addActionListener(new ButtonListener());
         Dimension buttonSize = new Dimension(500, 100);
         button.setPreferredSize(buttonSize);
         button.setFont(policeTitle);
@@ -132,4 +112,9 @@ public class MovieSetWindow extends JInternalFrame {
             System.out.println("ComboBox action sur " + combo.getSelectedItem());
         }
     }
+    class ButtonListener implements ActionListener {
+        public void actionPerformed(ActionEvent action) {
+            setVisible(false);
+        }
+        }
 }
