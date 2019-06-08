@@ -46,11 +46,36 @@ public class MovieSetWindow extends JInternalFrame {
         panelTeam.setBackground(Color.WHITE);
 
         //Equipe du film
-        JLabel labelTeam = new JLabel("L'équipe de votre film : acteurs : "+currentMovie.getActors()+"\n scénariste : "+currentMovie.getScriptwriterName()+"\n réalisateur : "+currentMovie.getDirector()+"\n équipe technique : "+currentMovie.getTechnicalCrew());
+        JLabel labelTeam = new JLabel("L'équipe de votre film : ");
         labelTeam.setFont(police);
         boxTeam.add(labelTeam);
         panelTeam.add(boxTeam);
         container.add(panelTeam, BorderLayout.WEST);
+            //les acteurs
+            JLabel labelActor = new JLabel("Les acteurs : "+currentMovie.getActors());
+            labelActor.setFont(police);
+            boxTeam.add(labelActor);
+            panelTeam.add(boxTeam);
+            //le scénariste
+            JLabel labelSw = new JLabel("scénariste : "+currentMovie.getScriptwriterName());
+            labelSw.setFont(police);
+            boxTeam.add(labelSw);
+            panelTeam.add(boxTeam);
+            //le réalisateur
+            JLabel labelDir = new JLabel("réalisateur : "+currentMovie.getDirector());
+            labelDir.setFont(police);
+            boxTeam.add(labelDir);
+            panelTeam.add(boxTeam);
+            //le genre
+            JLabel labelG = new JLabel("Le genre du film : "+currentMovie.getGenre());
+            labelG.setFont(police);
+            boxTeam.add(labelG);
+            panelTeam.add(boxTeam);
+            //l'equipe
+            JLabel labelTc = new JLabel("L'équipe technique : "+currentMovie.getTechnicalCrew());
+            labelTc.setFont(police);
+            boxTeam.add(labelTc);
+            panelTeam.add(boxTeam);
 
         //Panel de droite
         JPanel panelState = new JPanel();

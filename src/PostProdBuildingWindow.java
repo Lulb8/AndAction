@@ -65,7 +65,7 @@ public class PostProdBuildingWindow extends JInternalFrame {
         panelFeature.setBackground(Color.WHITE);
 
         //Resumé des caractéristiques du film en cours
-        JLabel labelFeature = new JLabel("Les caractéristiques de votre film : ");
+        JLabel labelFeature = new JLabel("Les caractéristiques de votre film : le réalisateur : "+currentMovie.getDirector());
         labelFeature.setFont(police);
         panelFeature.add(labelFeature);
         container.add(panelFeature, BorderLayout.EAST);

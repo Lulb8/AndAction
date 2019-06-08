@@ -80,14 +80,17 @@ public class GameWindow extends Window {
                 switch (numBuilding) {
                     case 1:
                         this.add(actorsBuilding);
-                        actorsBuilding.ActorsBuildingWindow(currentMovie);
-                        currentMovie.setActors(actorsBuilding.getActors());
-                        currentMovie.setDirector(actorsBuilding.getDirector());
-                        currentMovie.setTechnicalCrew(actorsBuilding.getTechnicalCrew());
+                        if (!currentMovie.equals(null)) {
+                            actorsBuilding.ActorsBuildingWindow(currentMovie);
+                            currentMovie.setActors(actorsBuilding.getActors());
+                            currentMovie.setDirector(actorsBuilding.getDirector());
+                            currentMovie.setTechnicalCrew(actorsBuilding.getTechnicalCrew());
+                    }
                         break;
                     case 2:
-                        this.add(postProd); //TODO
+                        this.add(postProd);
                         postProd.PostProdBuildingWindow(currentMovie);
+                        currentMovie.setState(1);
                         break;
                     case 3:
                         this.add(movieSet);
