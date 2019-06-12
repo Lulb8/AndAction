@@ -75,7 +75,7 @@ public class ScriptwritersBuildingWindow extends JInternalFrame implements Docum
         panelGenre.setBackground(Color.WHITE);
         JLabel labelGenre = new JLabel("Le genre de votre film : ");
         labelGenre.setFont(police);
-        String[] genre = {"Action", "Drame", "Horreur", "SF"};
+        String[] genre = {"Action", "Drame", "Horreur", "SF", "Biopic", "Romantique", "Comédie", "Aventure", "Thriller", "Historique", "Fantastique"};
         comboGenre = new JComboBox(genre);
         comboGenre.addItemListener(new ItemState());
         comboGenre.addActionListener(new ItemAction(comboGenre));

@@ -10,6 +10,7 @@ public class PostProdBuildingWindow extends JInternalFrame {
     protected JInternalFrame internalFrame;
     private JTextField jTextField = new JTextField();
     private JPanel container = new JPanel();
+    private JButton button;
 
     private static int x = 320;
     private static int y = 100;
@@ -90,12 +91,13 @@ public class PostProdBuildingWindow extends JInternalFrame {
         panelButton.setBackground(Color.WHITE);
         panelButton.setSize(200, 100);
         JButton button = new JButton("Sortir le film !");
+        button.addActionListener(new ButtonListener());
         Dimension buttonSize = new Dimension(500, 100);
         button.setPreferredSize(buttonSize);
         button.setFont(policeTitle);
         panelButton.add(button);
         container.add(panelButton, BorderLayout.SOUTH);
-
+        button.addActionListener(new ButtonListener());
         this.setContentPane(container);
         this.setVisible(true);
         }
@@ -116,6 +118,11 @@ public class PostProdBuildingWindow extends JInternalFrame {
 
         public void actionPerformed(ActionEvent e) {
             System.out.println("ComboBox action sur " + combo.getSelectedItem());
+        }
+    }
+    class ButtonListener implements ActionListener {
+        public void actionPerformed(ActionEvent action) {
+            setVisible(false);
         }
     }
 }

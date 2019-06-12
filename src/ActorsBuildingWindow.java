@@ -58,7 +58,7 @@ public class ActorsBuildingWindow extends JInternalFrame {
         //Choix de l'acteur
         JLabel labelActor = new JLabel("L'acteur de votre film : ");
         labelActor.setFont(police);
-        String[] actors = {"AMachin", "ATruc", "ABidule", "AChouette"};
+        String[] actors = {"Bad Pitt", "Robert Downey Senior", "Michael J.Box", "Nathalie Porthomme", "Angelina Moche","Morgan Jailman"};
         comboActor = new JComboBox(actors);
         comboActor.addItemListener(new ItemState());
         comboActor.addActionListener(new ItemAction(comboActor));
@@ -71,7 +71,7 @@ public class ActorsBuildingWindow extends JInternalFrame {
         //Choix du réalisateur
         JLabel labelDirector = new JLabel("Le réalisateur de votre film : ");
         labelDirector.setFont(police);
-        String[] directors = {"RMachin", "RTruc", "RBidule", "RChouette"};
+        String[] directors = {"Luc Buisson", "Steven Playberg", "Christopher L'Âne", "James Cameroun"};
         comboDirector = new JComboBox(directors);
         comboDirector.addItemListener(new ItemState());
         comboDirector.addActionListener(new ItemAction(comboDirector));
@@ -90,7 +90,7 @@ public class ActorsBuildingWindow extends JInternalFrame {
         //Choix de l'equipe technique
         JLabel labelTC = new JLabel("L'équipe technique de votre film : ");
         labelTC.setFont(police);
-        String[] technicalCrew = {"TMachin", "TTruc", "TBidule", "TChouette"};
+        String[] technicalCrew = {"Brigade spéciale", "L'Araignée", "CamérAvengers","Equipe Tecktonic"};
         comboTC = new JComboBox(technicalCrew);
         comboTC.addItemListener(new ItemState());
         comboTC.addActionListener(new ItemAction(comboTC));

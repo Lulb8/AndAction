@@ -38,13 +38,13 @@ public class Actors{
         }
     }
     */
-
     public void initializeActors() {
-        Actor a1 = new Actor(), a2 = new Actor(), a3 = new Actor(), a4 = new Actor();
-        a1.createActor("AMachin",1000,"rousse");
-        a2.createActor("AChouette",500,"grand");
-        a3.createActor("ABidule",1100,"brun");
-        a4.createActor("ATruc",850,"musclée");
+        Actor a1 = new Actor(), a2 = new Actor(), a3 = new Actor(), a4 = new Actor(),a5=new Actor();
+        a1.createActor("Bad Pitt",1000,"roux");
+        a2.createActor( "Robert Downey Senior",500,"grand");
+        a3.createActor( "Michael J.Box",1100,"brun");
+        a4.createActor( "Nathalie Porthomme",850,"musclée");
+        a5.createActor( "Angelina Moche",850,"laide");
         actors.add(a1);
         actors.add(a2);
         actors.add(a3);
